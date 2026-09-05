@@ -1,0 +1,32 @@
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import ExerciseLibrary from './pages/ExerciseLibrary'
+import ExerciseDetail from './pages/ExerciseDetail'
+import Calculators from './pages/Calculators'
+import OneRepMax from './pages/OneRepMax'
+import TDEE from './pages/TDEE'
+import PlateauBreaker from './pages/PlateauBreaker'
+import Tracker from './pages/Tracker'
+
+export default function App() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/exercises" element={<ExerciseLibrary />} />
+          <Route path="/exercises/:slug" element={<ExerciseDetail />} />
+          <Route path="/calculators" element={<Calculators />} />
+          <Route path="/calculators/one-rep-max" element={<OneRepMax />} />
+          <Route path="/calculators/tdee" element={<TDEE />} />
+          <Route path="/calculators/plateau-breaker" element={<PlateauBreaker />} />
+          <Route path="/tracker" element={<Tracker />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  )
+}
