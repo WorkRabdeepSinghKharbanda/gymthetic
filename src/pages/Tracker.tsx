@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { exercises, getExerciseBySlug } from '../data/exercises'
+import { exercises, muscleGroups, getExerciseBySlug, type MuscleGroup } from '../data/exercises'
 import {
   addLog,
   deleteLog,
@@ -20,12 +20,27 @@ const PLATEAU_THRESHOLD_WEEKS = 3
 
 export default function Tracker() {
   const [params] = useSearchParams()
-  const [slug, setSlug] = useState(params.get('exercise') ?? exercises[0].slug)
+  const initialSlug = params.get('exercise') ?? exercises[0].slug
+  const [muscleGroup, setMuscleGroup] = useState<MuscleGroup>(
+    getExerciseBySlug(initialSlug)?.muscleGroup ?? muscleGroups[0],
+  )
+  const [slug, setSlug] = useState(initialSlug)
   const [weight, setWeight] = useState(60)
   const [reps, setReps] = useState(8)
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
   const [note, setNote] = useState('')
   const [logs, setLogsState] = useState<LogEntry[]>(() => getLogs())
+
+  const exercisesInGroup = useMemo(
+    () => exercises.filter((e) => e.muscleGroup === muscleGroup),
+    [muscleGroup],
+  )
+
+  function handleMuscleGroupChange(group: MuscleGroup) {
+    setMuscleGroup(group)
+    const firstInGroup = exercises.find((e) => e.muscleGroup === group)
+    if (firstInGroup) setSlug(firstInGroup.slug)
+  }
 
   const exercise = getExerciseBySlug(slug)
   const history = useMemo(() => logsForExercise(slug), [slug, logs])
@@ -81,14 +96,28 @@ export default function Tracker() {
       <div className="mt-8 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
         <h2 className="font-semibold text-neutral-900 dark:text-white">Log a session</h2>
         <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <label className="col-span-2 block sm:col-span-1">
+          <label className="block">
+            <span className="text-xs font-medium text-neutral-500">Muscle group</span>
+            <select
+              value={muscleGroup}
+              onChange={(e) => handleMuscleGroupChange(e.target.value as MuscleGroup)}
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-2 py-2 text-sm dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
+            >
+              {muscleGroups.map((g) => (
+                <option key={g} value={g}>
+                  {g}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="block">
             <span className="text-xs font-medium text-neutral-500">Exercise</span>
             <select
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
               className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-2 py-2 text-sm dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
             >
-              {exercises.map((e) => (
+              {exercisesInGroup.map((e) => (
                 <option key={e.slug} value={e.slug}>
                   {e.name}
                 </option>
