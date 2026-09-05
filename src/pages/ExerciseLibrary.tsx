@@ -2,19 +2,27 @@ import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { exercises, muscleGroups, categories, type Category, type MuscleGroup } from '../data/exercises'
 import ExerciseCard from '../components/ExerciseCard'
+import { useFavorites } from '../hooks/useFavorites'
 
 export default function ExerciseLibrary() {
   const [params, setParams] = useSearchParams()
   const initialMuscle = params.get('muscle') as MuscleGroup | null
   const [muscle, setMuscle] = useState<MuscleGroup | 'all'>(initialMuscle ?? 'all')
   const [category, setCategory] = useState<Category | 'all'>('all')
+  const [query, setQuery] = useState('')
+  const [favoritesOnly, setFavoritesOnly] = useState(false)
+  const { favorites, isFavorite, toggle } = useFavorites()
 
   const filtered = useMemo(
     () =>
       exercises.filter(
-        (e) => (muscle === 'all' || e.muscleGroup === muscle) && (category === 'all' || e.category === category),
+        (e) =>
+          (muscle === 'all' || e.muscleGroup === muscle) &&
+          (category === 'all' || e.category === category) &&
+          e.name.toLowerCase().includes(query.trim().toLowerCase()) &&
+          (!favoritesOnly || favorites.includes(e.slug)),
       ),
-    [muscle, category],
+    [muscle, category, query, favoritesOnly, favorites],
   )
 
   function selectMuscle(m: MuscleGroup | 'all') {
@@ -31,13 +39,22 @@ export default function ExerciseLibrary() {
         {filtered.length} exercise{filtered.length === 1 ? '' : 's'}
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-4">
-        <div className="flex flex-wrap gap-2">
-          <FilterPill active={muscle === 'all'} onClick={() => selectMuscle('all')} label="All muscles" />
-          {muscleGroups.map((m) => (
-            <FilterPill key={m} active={muscle === m} onClick={() => selectMuscle(m)} label={m} />
-          ))}
-        </div>
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search exercises…"
+          className="w-full max-w-xs rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-orange-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
+        />
+        <FilterPill active={favoritesOnly} onClick={() => setFavoritesOnly((v) => !v)} label="★ Favorites" />
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <FilterPill active={muscle === 'all'} onClick={() => selectMuscle('all')} label="All muscles" />
+        {muscleGroups.map((m) => (
+          <FilterPill key={m} active={muscle === m} onClick={() => selectMuscle(m)} label={m} />
+        ))}
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
         <FilterPill active={category === 'all'} onClick={() => setCategory('all')} label="All types" />
@@ -48,7 +65,7 @@ export default function ExerciseLibrary() {
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((e) => (
-          <ExerciseCard key={e.slug} exercise={e} />
+          <ExerciseCard key={e.slug} exercise={e} isFavorite={isFavorite(e.slug)} onToggleFavorite={() => toggle(e.slug)} />
         ))}
       </div>
     </div>

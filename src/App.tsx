@@ -9,6 +9,7 @@ import OneRepMax from './pages/OneRepMax'
 import TDEE from './pages/TDEE'
 import PlateauBreaker from './pages/PlateauBreaker'
 import Tracker from './pages/Tracker'
+import Records from './pages/Records'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/calculators/tdee" element={<TDEE />} />
           <Route path="/calculators/plateau-breaker" element={<PlateauBreaker />} />
           <Route path="/tracker" element={<Tracker />} />
+          <Route path="/records" element={<Records />} />
         </Routes>
       </main>
       <Footer />

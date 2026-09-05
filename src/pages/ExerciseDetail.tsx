@@ -1,9 +1,14 @@
 import { Link, useParams } from 'react-router-dom'
 import { getExerciseBySlug } from '../data/exercises'
+import { personalRecords } from '../lib/storage'
+import { useFavorites } from '../hooks/useFavorites'
+import FavoriteButton from '../components/FavoriteButton'
 
 export default function ExerciseDetail() {
   const { slug } = useParams()
   const exercise = slug ? getExerciseBySlug(slug) : undefined
+  const { isFavorite, toggle } = useFavorites()
+  const pr = slug ? personalRecords()[slug] : undefined
 
   if (!exercise) {
     return (
@@ -29,7 +34,16 @@ export default function ExerciseDetail() {
           {exercise.category}
         </span>
       </div>
-      <h1 className="mt-2 text-3xl font-bold text-neutral-900 dark:text-white">{exercise.name}</h1>
+      <div className="mt-2 flex items-center gap-2">
+        <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">{exercise.name}</h1>
+        <FavoriteButton active={isFavorite(exercise.slug)} onClick={() => toggle(exercise.slug)} />
+      </div>
+
+      {pr && (
+        <p className="mt-2 text-sm font-medium text-orange-600 dark:text-orange-400">
+          PR: {pr.weight}kg × {pr.reps} ({new Date(pr.date).toLocaleDateString()}) — est. 1RM {Math.round(pr.est1rm)}kg
+        </p>
+      )}
 
       <div className="mt-6 grid gap-2 text-sm text-neutral-600 dark:text-neutral-300">
         <p>

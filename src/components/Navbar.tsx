@@ -6,6 +6,7 @@ const links = [
   { to: '/exercises', label: 'Exercises' },
   { to: '/calculators', label: 'Calculators' },
   { to: '/tracker', label: 'Tracker' },
+  { to: '/records', label: 'Records' },
 ]
 
 export default function Navbar() {

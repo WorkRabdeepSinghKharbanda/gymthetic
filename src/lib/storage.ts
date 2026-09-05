@@ -8,6 +8,7 @@ export interface LogEntry {
 
 const LOG_KEY = 'gymthetic.logs'
 const THEME_KEY = 'gymthetic.theme'
+const FAVORITES_KEY = 'gymthetic.favorites'
 
 export function getLogs(): LogEntry[] {
   try {
@@ -63,6 +64,35 @@ export function weeksSinceLastPR(slug: string): number | null {
   }
   const diffMs = Date.now() - new Date(bestDate).getTime()
   return Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000))
+}
+
+/** Best estimated 1RM (Epley) ever logged per exercise slug. */
+export function personalRecords(): Record<string, { est1rm: number; weight: number; reps: number; date: string }> {
+  const best: Record<string, { est1rm: number; weight: number; reps: number; date: string }> = {}
+  for (const log of getLogs()) {
+    const est1rm = log.weight * (1 + log.reps / 30)
+    const current = best[log.exerciseSlug]
+    if (!current || est1rm > current.est1rm) {
+      best[log.exerciseSlug] = { est1rm, weight: log.weight, reps: log.reps, date: log.date }
+    }
+  }
+  return best
+}
+
+export function getFavorites(): string[] {
+  try {
+    const raw = localStorage.getItem(FAVORITES_KEY)
+    return raw ? (JSON.parse(raw) as string[]) : []
+  } catch {
+    return []
+  }
+}
+
+export function toggleFavorite(slug: string): string[] {
+  const current = getFavorites()
+  const updated = current.includes(slug) ? current.filter((s) => s !== slug) : [...current, slug]
+  localStorage.setItem(FAVORITES_KEY, JSON.stringify(updated))
+  return updated
 }
 
 export type Theme = 'light' | 'dark'

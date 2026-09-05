@@ -13,6 +13,7 @@ import {
 } from '../lib/storage'
 import ProgressChart from '../components/ProgressChart'
 import StreakHeatmap from '../components/StreakHeatmap'
+import RestTimer from '../components/RestTimer'
 
 const PLATEAU_THRESHOLD_WEEKS = 3
 
@@ -120,6 +121,10 @@ export default function Tracker() {
           </Link>
         </div>
       )}
+
+      <div className="mt-8">
+        <RestTimer />
+      </div>
 
       <div className="mt-8">
         <h2 className="font-semibold text-neutral-900 dark:text-white">{exercise?.name} trend</h2>

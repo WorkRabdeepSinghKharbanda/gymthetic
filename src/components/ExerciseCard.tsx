@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { Exercise } from '../data/exercises'
+import FavoriteButton from './FavoriteButton'
 
 const categoryColor: Record<Exercise['category'], string> = {
   push: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
@@ -7,7 +8,15 @@ const categoryColor: Record<Exercise['category'], string> = {
   legs: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
 }
 
-export default function ExerciseCard({ exercise }: { exercise: Exercise }) {
+export default function ExerciseCard({
+  exercise,
+  isFavorite,
+  onToggleFavorite,
+}: {
+  exercise: Exercise
+  isFavorite: boolean
+  onToggleFavorite: () => void
+}) {
   return (
     <Link
       to={`/exercises/${exercise.slug}`}
@@ -17,9 +26,12 @@ export default function ExerciseCard({ exercise }: { exercise: Exercise }) {
         <span className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
           {exercise.muscleGroup}
         </span>
-        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold uppercase ${categoryColor[exercise.category]}`}>
-          {exercise.category}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className={`rounded-full px-2 py-0.5 text-xs font-semibold uppercase ${categoryColor[exercise.category]}`}>
+            {exercise.category}
+          </span>
+          <FavoriteButton active={isFavorite} onClick={onToggleFavorite} />
+        </div>
       </div>
       <h3 className="mt-2 text-lg font-semibold text-neutral-900 group-hover:text-orange-500 dark:text-white">
         {exercise.name}
