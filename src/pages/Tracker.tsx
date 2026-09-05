@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { exercises, muscleGroups, getExerciseBySlug, type MuscleGroup } from '../data/exercises'
+import { exercises, muscleGroups, categories, getExerciseBySlug, type MuscleGroup } from '../data/exercises'
 import {
   addLog,
   deleteLog,
@@ -10,9 +10,11 @@ import {
   setLogs,
   weeksSinceLastPR,
   weeklyVolumeByMuscleGroup,
+  volumeTrendByCategory,
   type LogEntry,
 } from '../lib/storage'
 import ProgressChart from '../components/ProgressChart'
+import LineChart from '../components/LineChart'
 import StreakHeatmap from '../components/StreakHeatmap'
 import RestTimer from '../components/RestTimer'
 
@@ -49,6 +51,18 @@ export default function Tracker() {
   const dates = useMemo(() => sessionDates(), [logs])
   const weeklyVolume = useMemo(
     () => weeklyVolumeByMuscleGroup((s) => getExerciseBySlug(s)?.muscleGroup),
+    [logs],
+  )
+  const exercisesWithHistory = useMemo(
+    () => exercises.filter((e) => logsForExercise(e.slug).length >= 2),
+    [logs],
+  )
+  const categoryTrends = useMemo(
+    () =>
+      categories.map((c) => ({
+        category: c,
+        points: volumeTrendByCategory(c, (s) => getExerciseBySlug(s)?.category),
+      })),
     [logs],
   )
 
@@ -173,10 +187,46 @@ export default function Tracker() {
       </div>
 
       <div className="mt-8">
-        <h2 className="font-semibold text-neutral-900 dark:text-white">{exercise?.name} trend</h2>
+        <h2 className="text-lg font-bold text-neutral-900 dark:text-white">Trends</h2>
+
         <div className="mt-3 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
-          <ProgressChart logs={history} />
+          <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-200">{exercise?.name}</h3>
+          <div className="mt-2">
+            <ProgressChart logs={history} />
+          </div>
         </div>
+
+        <div className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-200">Push / Pull / Legs volume</h3>
+          <div className="mt-3 grid gap-4 sm:grid-cols-3">
+            {categoryTrends.map(({ category, points }) => (
+              <div key={category}>
+                <p className="text-xs font-medium capitalize text-neutral-500 dark:text-neutral-400">{category}</p>
+                <div className="mt-1">
+                  <LineChart points={points} height={90} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {exercisesWithHistory.length > 0 && (
+          <div className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-200">All exercises</h3>
+            <div className="mt-3 grid gap-4 sm:grid-cols-2">
+              {exercisesWithHistory.map((e) => (
+                <div key={e.slug}>
+                  <Link to={`/exercises/${e.slug}`} className="text-xs font-medium text-neutral-500 hover:text-orange-500 dark:text-neutral-400">
+                    {e.name}
+                  </Link>
+                  <div className="mt-1">
+                    <ProgressChart logs={logsForExercise(e.slug)} height={80} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="mt-8">

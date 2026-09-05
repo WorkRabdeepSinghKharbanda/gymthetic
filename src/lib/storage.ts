@@ -95,6 +95,21 @@ export function weeklyVolumeByMuscleGroup(
   return totals
 }
 
+/** Total volume (weight × reps) per session date for exercises in a category, sorted oldest first. */
+export function volumeTrendByCategory(
+  category: string,
+  categoryOf: (slug: string) => string | undefined,
+): number[] {
+  const totals = new Map<string, number>()
+  for (const log of getLogs()) {
+    if (categoryOf(log.exerciseSlug) !== category) continue
+    totals.set(log.date, (totals.get(log.date) ?? 0) + log.weight * log.reps)
+  }
+  return Array.from(totals.entries())
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([, volume]) => volume)
+}
+
 export function getFavorites(): string[] {
   try {
     const raw = localStorage.getItem(FAVORITES_KEY)
