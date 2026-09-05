@@ -3,23 +3,37 @@ import { Link } from 'react-router-dom'
 import { exercises, muscleGroups, type MuscleGroup } from '../data/exercises'
 
 const repSchemes = ['3x5 (strength)', '4x8 (hypertrophy)', '3x12 (endurance)', '5x5 (volume)']
+const WORKOUT_SIZE = 4
+
+function shuffle<T>(arr: T[]): T[] {
+  const copy = [...arr]
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
+}
 
 export default function TodaysFocus() {
   const [group, setGroup] = useState<MuscleGroup>(muscleGroups[0])
-  const [pick, setPick] = useState<{ name: string; slug: string; scheme: string } | null>(null)
+  const [plan, setPlan] = useState<{ name: string; slug: string; scheme: string }[]>([])
 
   function randomize() {
-    const pool = exercises.filter((e) => e.muscleGroup === group)
-    const exercise = pool[Math.floor(Math.random() * pool.length)]
-    const scheme = repSchemes[Math.floor(Math.random() * repSchemes.length)]
-    setPick({ name: exercise.name, slug: exercise.slug, scheme })
+    const pool = shuffle(exercises.filter((e) => e.muscleGroup === group)).slice(0, WORKOUT_SIZE)
+    setPlan(
+      pool.map((exercise) => ({
+        name: exercise.name,
+        slug: exercise.slug,
+        scheme: repSchemes[Math.floor(Math.random() * repSchemes.length)],
+      })),
+    )
   }
 
   return (
     <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
       <h3 className="font-semibold text-neutral-900 dark:text-white">Today's focus</h3>
       <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-        Pick a muscle group, get a quick suggested exercise + rep scheme.
+        Pick a muscle group, get a full suggested workout with rep schemes.
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
         <select
@@ -40,13 +54,18 @@ export default function TodaysFocus() {
           Surprise me
         </button>
       </div>
-      {pick && (
-        <p className="mt-4 text-sm text-neutral-700 dark:text-neutral-200">
-          <Link to={`/exercises/${pick.slug}`} className="font-semibold text-orange-500 hover:underline">
-            {pick.name}
-          </Link>{' '}
-          — {pick.scheme}
-        </p>
+      {plan.length > 0 && (
+        <ol className="mt-4 space-y-2 text-sm text-neutral-700 dark:text-neutral-200">
+          {plan.map((item, i) => (
+            <li key={item.slug} className="flex items-baseline gap-2">
+              <span className="text-neutral-400">{i + 1}.</span>
+              <Link to={`/exercises/${item.slug}`} className="font-semibold text-orange-500 hover:underline">
+                {item.name}
+              </Link>
+              <span className="text-neutral-500 dark:text-neutral-400">— {item.scheme}</span>
+            </li>
+          ))}
+        </ol>
       )}
     </div>
   )
