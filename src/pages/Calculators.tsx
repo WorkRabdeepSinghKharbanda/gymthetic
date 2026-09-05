@@ -25,6 +25,12 @@ export default function Calculators() {
           description="Stuck on a lift? Get a checklist and concrete next steps."
           icon="🧗"
         />
+        <CalculatorCard
+          to="/calculators/plates"
+          title="Plate Calculator"
+          description="Work out which plates to load per side for any target weight."
+          icon="⚙️"
+        />
       </div>
     </div>
   )

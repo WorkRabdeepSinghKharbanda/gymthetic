@@ -51,3 +51,20 @@ export function calcMacros(tdee: number, goal: Goal, weightKg: number): MacroRes
   const carbsG = Math.round((calories - proteinG * 4 - fatG * 9) / 4)
   return { calories, proteinG, carbsG, fatG: Math.max(fatG, 0), }
 }
+
+const AVAILABLE_PLATES = [25, 20, 15, 10, 5, 2.5, 1.25]
+
+/** Plates needed per side to hit target weight on a barbell, greedy largest-first. */
+export function calcPlates(targetWeight: number, barWeight: number): { plates: number[]; achieved: number } {
+  const perSide = Math.max((targetWeight - barWeight) / 2, 0)
+  let remaining = perSide
+  const plates: number[] = []
+  for (const plate of AVAILABLE_PLATES) {
+    while (remaining >= plate - 0.001) {
+      plates.push(plate)
+      remaining -= plate
+    }
+  }
+  const achieved = barWeight + 2 * plates.reduce((sum, p) => sum + p, 0)
+  return { plates, achieved }
+}

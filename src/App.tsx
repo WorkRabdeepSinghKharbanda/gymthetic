@@ -8,6 +8,7 @@ import Calculators from './pages/Calculators'
 import OneRepMax from './pages/OneRepMax'
 import TDEE from './pages/TDEE'
 import PlateauBreaker from './pages/PlateauBreaker'
+import PlateCalculator from './pages/PlateCalculator'
 import Tracker from './pages/Tracker'
 import Records from './pages/Records'
 
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/calculators/one-rep-max" element={<OneRepMax />} />
           <Route path="/calculators/tdee" element={<TDEE />} />
           <Route path="/calculators/plateau-breaker" element={<PlateauBreaker />} />
+          <Route path="/calculators/plates" element={<PlateCalculator />} />
           <Route path="/tracker" element={<Tracker />} />
           <Route path="/records" element={<Records />} />
         </Routes>

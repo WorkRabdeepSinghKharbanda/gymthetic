@@ -9,6 +9,7 @@ import {
   sessionDates,
   setLogs,
   weeksSinceLastPR,
+  weeklyVolumeByMuscleGroup,
   type LogEntry,
 } from '../lib/storage'
 import ProgressChart from '../components/ProgressChart'
@@ -23,6 +24,7 @@ export default function Tracker() {
   const [weight, setWeight] = useState(60)
   const [reps, setReps] = useState(8)
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
+  const [note, setNote] = useState('')
   const [logs, setLogsState] = useState<LogEntry[]>(() => getLogs())
 
   const exercise = getExerciseBySlug(slug)
@@ -30,10 +32,15 @@ export default function Tracker() {
   const plateauWeeks = weeksSinceLastPR(slug)
   const isPlateaued = plateauWeeks !== null && plateauWeeks >= PLATEAU_THRESHOLD_WEEKS
   const dates = useMemo(() => sessionDates(), [logs])
+  const weeklyVolume = useMemo(
+    () => weeklyVolumeByMuscleGroup((s) => getExerciseBySlug(s)?.muscleGroup),
+    [logs],
+  )
 
   function handleAdd() {
-    const updated = addLog({ exerciseSlug: slug, weight, reps, date })
+    const updated = addLog({ exerciseSlug: slug, weight, reps, date, note: note.trim() || undefined })
     setLogsState(updated)
+    setNote('')
   }
 
   function handleDelete(id: string) {
@@ -100,6 +107,16 @@ export default function Tracker() {
             />
           </label>
         </div>
+        <label className="mt-4 block">
+          <span className="text-xs font-medium text-neutral-500">Notes / RPE (optional)</span>
+          <input
+            type="text"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            placeholder="e.g. RPE 8, felt strong"
+            className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-2 py-2 text-sm dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
+          />
+        </label>
         <button
           onClick={handleAdd}
           className="mt-4 rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-600"
@@ -143,19 +160,44 @@ export default function Tracker() {
             .slice()
             .reverse()
             .map((log) => (
-              <div key={log.id} className="flex items-center justify-between p-3 text-sm">
-                <span className="text-neutral-600 dark:text-neutral-300">{log.date}</span>
-                <span className="font-medium text-neutral-900 dark:text-white">
+              <div key={log.id} className="flex items-center justify-between gap-2 p-3 text-sm">
+                <span className="shrink-0 text-neutral-600 dark:text-neutral-300">{log.date}</span>
+                <span className="shrink-0 font-medium text-neutral-900 dark:text-white">
                   {log.weight}kg × {log.reps}
                 </span>
+                {log.note && (
+                  <span className="flex-1 truncate text-xs italic text-neutral-400" title={log.note}>
+                    {log.note}
+                  </span>
+                )}
                 <button
                   onClick={() => handleDelete(log.id)}
-                  className="text-xs text-neutral-400 hover:text-red-500"
+                  className="shrink-0 text-xs text-neutral-400 hover:text-red-500"
                 >
                   Remove
                 </button>
               </div>
             ))}
+        </div>
+      </div>
+
+      <div className="mt-8">
+        <h2 className="font-semibold text-neutral-900 dark:text-white">This week's volume by muscle group</h2>
+        <div className="mt-3 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          {Object.keys(weeklyVolume).length === 0 ? (
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">No sessions in the last 7 days.</p>
+          ) : (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {Object.entries(weeklyVolume)
+                .sort((a, b) => b[1] - a[1])
+                .map(([group, volume]) => (
+                  <div key={group} className="rounded-lg bg-neutral-50 p-3 text-center dark:bg-neutral-800/60">
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400">{group}</p>
+                    <p className="font-bold text-neutral-900 dark:text-white">{Math.round(volume)} kg</p>
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       </div>
 

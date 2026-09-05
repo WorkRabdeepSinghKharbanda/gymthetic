@@ -4,6 +4,7 @@ export interface LogEntry {
   weight: number
   reps: number
   date: string // ISO date
+  note?: string
 }
 
 const LOG_KEY = 'gymthetic.logs'
@@ -77,6 +78,21 @@ export function personalRecords(): Record<string, { est1rm: number; weight: numb
     }
   }
   return best
+}
+
+/** Total volume (weight × reps) per muscle group for the last 7 days. */
+export function weeklyVolumeByMuscleGroup(
+  muscleGroupOf: (slug: string) => string | undefined,
+): Record<string, number> {
+  const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000
+  const totals: Record<string, number> = {}
+  for (const log of getLogs()) {
+    if (new Date(log.date).getTime() < cutoff) continue
+    const group = muscleGroupOf(log.exerciseSlug)
+    if (!group) continue
+    totals[group] = (totals[group] ?? 0) + log.weight * log.reps
+  }
+  return totals
 }
 
 export function getFavorites(): string[] {
