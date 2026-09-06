@@ -17,7 +17,10 @@ import ProgressChart from '../components/ProgressChart'
 import LineChart from '../components/LineChart'
 import StreakHeatmap from '../components/StreakHeatmap'
 import RestTimer from '../components/RestTimer'
+import HistoryList from '../components/HistoryList'
+import Toast from '../components/Toast'
 import { useSeo } from '../hooks/useSeo'
+import { useToast } from '../hooks/useToast'
 
 const PLATEAU_THRESHOLD_WEEKS = 3
 
@@ -40,6 +43,7 @@ export default function Tracker() {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
   const [note, setNote] = useState('')
   const [logs, setLogsState] = useState<LogEntry[]>(() => getLogs())
+  const toast = useToast()
 
   const exercisesInGroup = useMemo(
     () => exercises.filter((e) => e.muscleGroup === muscleGroup),
@@ -78,6 +82,7 @@ export default function Tracker() {
     const updated = addLog({ exerciseSlug: slug, weight, reps, date, note: note.trim() || undefined })
     setLogsState(updated)
     setNote('')
+    toast.show(`Logged ${exercise?.name ?? 'lift'} — ${weight}kg × ${reps}`)
   }
 
   function handleDelete(id: string) {
@@ -239,32 +244,8 @@ export default function Tracker() {
 
       <div className="mt-8">
         <h2 className="font-semibold text-neutral-900 dark:text-white">History</h2>
-        <div className="mt-3 divide-y divide-neutral-200 rounded-xl border border-neutral-200 bg-white dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-900">
-          {history.length === 0 && (
-            <p className="p-4 text-sm text-neutral-500 dark:text-neutral-400">No sessions logged yet.</p>
-          )}
-          {history
-            .slice()
-            .reverse()
-            .map((log) => (
-              <div key={log.id} className="flex items-center justify-between gap-2 p-3 text-sm">
-                <span className="shrink-0 text-neutral-600 dark:text-neutral-300">{log.date}</span>
-                <span className="shrink-0 font-medium text-neutral-900 dark:text-white">
-                  {log.weight}kg × {log.reps}
-                </span>
-                {log.note && (
-                  <span className="flex-1 truncate text-xs italic text-neutral-400" title={log.note}>
-                    {log.note}
-                  </span>
-                )}
-                <button
-                  onClick={() => handleDelete(log.id)}
-                  className="shrink-0 text-xs text-neutral-400 hover:text-red-500"
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
+        <div className="mt-3">
+          <HistoryList logs={history} onDelete={handleDelete} />
         </div>
       </div>
 
@@ -307,6 +288,8 @@ export default function Tracker() {
           <input type="file" accept="application/json" onChange={handleImport} className="hidden" />
         </label>
       </div>
+
+      {toast.message && <Toast message={toast.message} />}
     </div>
   )
 }

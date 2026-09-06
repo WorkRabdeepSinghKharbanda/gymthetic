@@ -9,6 +9,7 @@ const emoji: Record<string, string> = {
   Biceps: '💪',
   Triceps: '🔱',
   Core: '🧱',
+  Forearms: '✊',
 }
 
 export default function MuscleGroupNav() {
