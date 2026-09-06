@@ -10,6 +10,7 @@ export interface LogEntry {
 const LOG_KEY = 'gymthetic.logs'
 const THEME_KEY = 'gymthetic.theme'
 const FAVORITES_KEY = 'gymthetic.favorites'
+const CONSENT_KEY = 'gymthetic.consent'
 
 export function getLogs(): LogEntry[] {
   try {
@@ -137,4 +138,15 @@ export function getTheme(): Theme {
 export function setTheme(theme: Theme): void {
   localStorage.setItem(THEME_KEY, theme)
   document.documentElement.classList.toggle('dark', theme === 'dark')
+}
+
+export type ConsentChoice = 'accepted' | 'declined'
+
+export function getConsent(): ConsentChoice | null {
+  const stored = localStorage.getItem(CONSENT_KEY)
+  return stored === 'accepted' || stored === 'declined' ? stored : null
+}
+
+export function setConsent(choice: ConsentChoice): void {
+  localStorage.setItem(CONSENT_KEY, choice)
 }

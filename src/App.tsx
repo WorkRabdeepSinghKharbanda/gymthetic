@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ConsentBanner from './components/ConsentBanner'
 import Home from './pages/Home'
 import ExerciseLibrary from './pages/ExerciseLibrary'
 import ExerciseDetail from './pages/ExerciseDetail'
@@ -11,6 +12,7 @@ import PlateauBreaker from './pages/PlateauBreaker'
 import PlateCalculator from './pages/PlateCalculator'
 import Tracker from './pages/Tracker'
 import Records from './pages/Records'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 export default function App() {
   return (
@@ -28,9 +30,11 @@ export default function App() {
           <Route path="/calculators/plates" element={<PlateCalculator />} />
           <Route path="/tracker" element={<Tracker />} />
           <Route path="/records" element={<Records />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />
+      <ConsentBanner />
     </div>
   )
 }
