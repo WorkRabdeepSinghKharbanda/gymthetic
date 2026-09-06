@@ -19,6 +19,7 @@ import StreakHeatmap from '../components/StreakHeatmap'
 import RestTimer from '../components/RestTimer'
 import HistoryList from '../components/HistoryList'
 import Toast from '../components/Toast'
+import NumberField from '../components/NumberField'
 import { useSeo } from '../hooks/useSeo'
 import { useToast } from '../hooks/useToast'
 
@@ -151,8 +152,8 @@ export default function Tracker() {
               ))}
             </select>
           </label>
-          <NumField label="Weight (kg)" value={weight} onChange={setWeight} />
-          <NumField label="Reps" value={reps} onChange={setReps} />
+          <NumberField label="Weight (kg)" value={weight} onChange={setWeight} min={0} max={500} />
+          <NumberField label="Reps" value={reps} onChange={setReps} min={1} max={100} />
           <label className="block">
             <span className="text-xs font-medium text-neutral-500">Date</span>
             <input
@@ -294,16 +295,3 @@ export default function Tracker() {
   )
 }
 
-function NumField({ label, value, onChange }: { label: string; value: number; onChange: (v: number) => void }) {
-  return (
-    <label className="block">
-      <span className="text-xs font-medium text-neutral-500">{label}</span>
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-2 py-2 text-sm text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
-      />
-    </label>
-  )
-}

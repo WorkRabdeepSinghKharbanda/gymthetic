@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { exercises } from '../data/exercises'
 import { getPlateauAdvice } from '../data/plateauRules'
 import { useSeo } from '../hooks/useSeo'
+import NumberField from '../components/NumberField'
 
 export default function PlateauBreaker() {
   useSeo({
@@ -43,17 +44,7 @@ export default function PlateauBreaker() {
             ))}
           </select>
         </label>
-        <label className="block">
-          <span className="text-sm font-medium text-neutral-600 dark:text-neutral-300">Weeks stalled</span>
-          <input
-            type="number"
-            min={0}
-            max={52}
-            value={weeks}
-            onChange={(e) => setWeeks(Number(e.target.value))}
-            className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
-          />
-        </label>
+        <NumberField label="Weeks stalled" value={weeks} onChange={setWeeks} min={0} max={52} />
       </div>
 
       <div className="mt-8 rounded-xl border border-orange-200 bg-orange-50 p-6 dark:border-orange-900/50 dark:bg-orange-900/20">

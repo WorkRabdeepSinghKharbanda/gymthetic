@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { calcPlates } from '../lib/calculators'
 import { useSeo } from '../hooks/useSeo'
+import NumberField from '../components/NumberField'
 
 const BAR_WEIGHTS = [20, 15, 10]
 
@@ -28,15 +29,7 @@ export default function PlateCalculator() {
       </p>
 
       <div className="mt-6 grid grid-cols-2 gap-4">
-        <label className="block">
-          <span className="text-sm font-medium text-neutral-600 dark:text-neutral-300">Target weight (kg)</span>
-          <input
-            type="number"
-            value={target}
-            onChange={(e) => setTarget(Number(e.target.value))}
-            className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 focus:border-orange-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
-          />
-        </label>
+        <NumberField label="Target weight (kg)" value={target} onChange={setTarget} min={0} max={500} />
         <label className="block">
           <span className="text-sm font-medium text-neutral-600 dark:text-neutral-300">Bar weight (kg)</span>
           <select

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { calcBMR, calcTDEE, calcMacros, type Sex, type ActivityLevel, type Goal } from '../lib/calculators'
 import { useSeo } from '../hooks/useSeo'
+import NumberField from '../components/NumberField'
 
 const activityOptions: { value: ActivityLevel; label: string }[] = [
   { value: 'sedentary', label: 'Sedentary (little/no exercise)' },
@@ -49,9 +50,9 @@ export default function TDEE() {
             <option value="female">Female</option>
           </select>
         </label>
-        <NumField label="Age" value={age} onChange={setAge} />
-        <NumField label="Weight (kg)" value={weight} onChange={setWeight} />
-        <NumField label="Height (cm)" value={height} onChange={setHeight} />
+        <NumberField label="Age" value={age} onChange={setAge} min={10} max={100} />
+        <NumberField label="Weight (kg)" value={weight} onChange={setWeight} min={1} max={300} />
+        <NumberField label="Height (cm)" value={height} onChange={setHeight} min={50} max={250} />
       </div>
 
       <label className="mt-4 block">
@@ -96,20 +97,6 @@ export default function TDEE() {
         <MacroTile label="Fat" value={`${macros.fatG}g`} />
       </div>
     </div>
-  )
-}
-
-function NumField({ label, value, onChange }: { label: string; value: number; onChange: (v: number) => void }) {
-  return (
-    <label className="block">
-      <span className="text-sm font-medium text-neutral-600 dark:text-neutral-300">{label}</span>
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 focus:border-orange-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
-      />
-    </label>
   )
 }
 

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { estimate1RM, percentTable } from '../lib/calculators'
 import { useSeo } from '../hooks/useSeo'
+import NumberField from '../components/NumberField'
 
 export default function OneRepMax() {
   useSeo({
@@ -25,8 +26,8 @@ export default function OneRepMax() {
       <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">Estimated using the Epley formula.</p>
 
       <div className="mt-6 grid grid-cols-2 gap-4">
-        <Field label="Weight lifted (kg)" value={weight} onChange={setWeight} />
-        <Field label="Reps performed" value={reps} onChange={setReps} max={15} />
+        <NumberField label="Weight lifted (kg)" value={weight} onChange={setWeight} max={500} />
+        <NumberField label="Reps performed" value={reps} onChange={setReps} max={15} />
       </div>
 
       <div className="mt-8 rounded-xl border border-orange-200 bg-orange-50 p-6 text-center dark:border-orange-900/50 dark:bg-orange-900/20">
@@ -51,31 +52,5 @@ export default function OneRepMax() {
         </tbody>
       </table>
     </div>
-  )
-}
-
-function Field({
-  label,
-  value,
-  onChange,
-  max = 500,
-}: {
-  label: string
-  value: number
-  onChange: (v: number) => void
-  max?: number
-}) {
-  return (
-    <label className="block">
-      <span className="text-sm font-medium text-neutral-600 dark:text-neutral-300">{label}</span>
-      <input
-        type="number"
-        min={0}
-        max={max}
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 focus:border-orange-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
-      />
-    </label>
   )
 }
