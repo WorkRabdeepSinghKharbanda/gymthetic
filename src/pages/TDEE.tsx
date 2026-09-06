@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { calcBMR, calcTDEE, calcMacros, type Sex, type ActivityLevel, type Goal } from '../lib/calculators'
+import { useSeo } from '../hooks/useSeo'
 
 const activityOptions: { value: ActivityLevel; label: string }[] = [
   { value: 'sedentary', label: 'Sedentary (little/no exercise)' },
@@ -11,6 +12,12 @@ const activityOptions: { value: ActivityLevel; label: string }[] = [
 ]
 
 export default function TDEE() {
+  useSeo({
+    title: 'TDEE & Macro Calculator',
+    description: 'Calculate your daily calorie needs (Mifflin-St Jeor) and a protein/carb/fat split for cutting, maintaining, or bulking.',
+    path: '/calculators/tdee',
+  })
+
   const [sex, setSex] = useState<Sex>('male')
   const [weight, setWeight] = useState(80)
   const [height, setHeight] = useState(178)

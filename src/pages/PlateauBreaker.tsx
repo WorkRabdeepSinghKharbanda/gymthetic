@@ -2,8 +2,15 @@ import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { exercises } from '../data/exercises'
 import { getPlateauAdvice } from '../data/plateauRules'
+import { useSeo } from '../hooks/useSeo'
 
 export default function PlateauBreaker() {
+  useSeo({
+    title: 'Plateau Breaker',
+    description: 'Stuck on a lift? Get a checklist and concrete next steps scaled to how many weeks you’ve been stalled.',
+    path: '/calculators/plateau-breaker',
+  })
+
   const [params] = useSearchParams()
   const [slug, setSlug] = useState(params.get('exercise') ?? exercises[0].slug)
   const [weeks, setWeeks] = useState(4)

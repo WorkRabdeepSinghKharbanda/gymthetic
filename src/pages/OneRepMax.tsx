@@ -1,8 +1,15 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { estimate1RM, percentTable } from '../lib/calculators'
+import { useSeo } from '../hooks/useSeo'
 
 export default function OneRepMax() {
+  useSeo({
+    title: '1RM Calculator',
+    description: 'Estimate your one-rep max using the Epley formula, plus a full percentage-based training table.',
+    path: '/calculators/one-rep-max',
+  })
+
   const [weight, setWeight] = useState(100)
   const [reps, setReps] = useState(5)
 

@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom'
 import MuscleGroupNav from '../components/MuscleGroupNav'
 import TodaysFocus from '../components/TodaysFocus'
+import { useSeo } from '../hooks/useSeo'
 
 export default function Home() {
+  useSeo({
+    title: 'Gymthetic',
+    description:
+      'Exercise library, strength calculators, and a personal progress tracker to help you plan your split and break through plateaus.',
+    path: '/',
+  })
+
   return (
     <div>
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-20 text-center">

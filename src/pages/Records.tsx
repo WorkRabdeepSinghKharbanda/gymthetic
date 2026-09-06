@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom'
 import { getExerciseBySlug } from '../data/exercises'
 import { personalRecords } from '../lib/storage'
+import { useSeo } from '../hooks/useSeo'
 
 export default function Records() {
+  useSeo({
+    title: 'Personal Records',
+    description: 'Your best logged lift per exercise, ranked by estimated one-rep max.',
+    path: '/records',
+    noindex: true,
+  })
+
   const records = personalRecords()
   const rows = Object.entries(records)
     .map(([slug, pr]) => ({ slug, exercise: getExerciseBySlug(slug), ...pr }))

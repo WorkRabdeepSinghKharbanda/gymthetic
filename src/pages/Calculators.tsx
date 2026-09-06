@@ -1,6 +1,13 @@
 import CalculatorCard from '../components/CalculatorCard'
+import { useSeo } from '../hooks/useSeo'
 
 export default function Calculators() {
+  useSeo({
+    title: 'Calculators',
+    description: '1RM, TDEE/macro, plateau breaker, and plate-math calculators for planning your training and nutrition.',
+    path: '/calculators',
+  })
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">Calculators</h1>

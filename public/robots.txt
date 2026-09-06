@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tracker
+Disallow: /records
+
+Sitemap: https://gymthetic.vercel.app/sitemap.xml

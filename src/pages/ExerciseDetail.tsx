@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { getExerciseBySlug } from '../data/exercises'
 import { personalRecords } from '../lib/storage'
 import { useFavorites } from '../hooks/useFavorites'
+import { useSeo } from '../hooks/useSeo'
 import FavoriteButton from '../components/FavoriteButton'
 
 export default function ExerciseDetail() {
@@ -9,6 +10,27 @@ export default function ExerciseDetail() {
   const exercise = slug ? getExerciseBySlug(slug) : undefined
   const { isFavorite, toggle } = useFavorites()
   const pr = slug ? personalRecords()[slug] : undefined
+
+  useSeo({
+    title: exercise ? exercise.name : 'Exercise not found',
+    description: exercise
+      ? `How to perform the ${exercise.name}: technique, primary/secondary muscles worked, common mistakes, and plateau-breaking tips.`
+      : 'Exercise not found.',
+    path: `/exercises/${slug ?? ''}`,
+    jsonLd: exercise
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: exercise.name,
+          description: `How to perform the ${exercise.name}, targeting ${exercise.primaryMuscles.join(', ')}.`,
+          step: exercise.howTo.map((text, i) => ({
+            '@type': 'HowToStep',
+            position: i + 1,
+            text,
+          })),
+        }
+      : undefined,
+  })
 
   if (!exercise) {
     return (

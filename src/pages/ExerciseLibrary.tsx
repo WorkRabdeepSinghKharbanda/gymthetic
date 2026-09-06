@@ -3,8 +3,15 @@ import { useSearchParams } from 'react-router-dom'
 import { exercises, muscleGroups, categories, type Category, type MuscleGroup } from '../data/exercises'
 import ExerciseCard from '../components/ExerciseCard'
 import { useFavorites } from '../hooks/useFavorites'
+import { useSeo } from '../hooks/useSeo'
 
 export default function ExerciseLibrary() {
+  useSeo({
+    title: 'Exercise Library',
+    description: 'Browse gym exercises by muscle group and push/pull/legs split, with how-to steps and plateau-breaking tips.',
+    path: '/exercises',
+  })
+
   const [params, setParams] = useSearchParams()
   const initialMuscle = params.get('muscle') as MuscleGroup | null
   const [muscle, setMuscle] = useState<MuscleGroup | 'all'>(initialMuscle ?? 'all')

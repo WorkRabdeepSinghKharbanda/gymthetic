@@ -1,10 +1,17 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { calcPlates } from '../lib/calculators'
+import { useSeo } from '../hooks/useSeo'
 
 const BAR_WEIGHTS = [20, 15, 10]
 
 export default function PlateCalculator() {
+  useSeo({
+    title: 'Plate Calculator',
+    description: 'Work out exactly which plates to load per side of a barbell for any target weight.',
+    path: '/calculators/plates',
+  })
+
   const [target, setTarget] = useState(100)
   const [bar, setBar] = useState(20)
 

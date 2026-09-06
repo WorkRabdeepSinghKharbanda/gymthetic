@@ -17,10 +17,18 @@ import ProgressChart from '../components/ProgressChart'
 import LineChart from '../components/LineChart'
 import StreakHeatmap from '../components/StreakHeatmap'
 import RestTimer from '../components/RestTimer'
+import { useSeo } from '../hooks/useSeo'
 
 const PLATEAU_THRESHOLD_WEEKS = 3
 
 export default function Tracker() {
+  useSeo({
+    title: 'Progress Tracker',
+    description: 'Log your lifts, track your estimated 1RM trend, and get plateau alerts — stored locally on your device.',
+    path: '/tracker',
+    noindex: true,
+  })
+
   const [params] = useSearchParams()
   const initialSlug = params.get('exercise') ?? exercises[0].slug
   const [muscleGroup, setMuscleGroup] = useState<MuscleGroup>(
