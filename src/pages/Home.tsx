@@ -13,7 +13,7 @@ export default function Home() {
           Exercise library, strength calculators, and a personal progress tracker —
           everything you need to plan your split and push past a stall, in one place.
         </p>
-        <div className="mt-8 flex justify-center gap-3">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             to="/exercises"
             className="rounded-lg bg-orange-500 px-6 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-orange-600"
