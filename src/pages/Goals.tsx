@@ -42,7 +42,7 @@ export default function Goals() {
       const exercise = getExerciseBySlug(goal.slug)
       const targetEst1rm = estimate1RM(goal.targetWeight, goal.targetReps)
       const currentEst1rm = records[goal.slug]?.est1rm ?? 0
-      const progress = Math.min(100, Math.round((currentEst1rm / targetEst1rm) * 100))
+      const progress = targetEst1rm > 0 ? Math.min(100, Math.round((currentEst1rm / targetEst1rm) * 100)) : 0
       return { goal, exercise, progress }
     })
     .filter((r) => r.exercise)
@@ -85,7 +85,7 @@ export default function Goals() {
               ))}
             </select>
           </label>
-          <NumberField label="Target weight (kg)" value={targetWeight} onChange={setTargetWeight} min={0} max={500} />
+          <NumberField label="Target weight (kg)" value={targetWeight} onChange={setTargetWeight} min={1} max={500} />
           <NumberField label="Target reps" value={targetReps} onChange={setTargetReps} min={1} max={100} />
         </div>
         <button

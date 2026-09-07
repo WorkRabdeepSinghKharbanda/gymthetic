@@ -62,13 +62,15 @@ export default function Templates() {
     const today = new Date().toISOString().slice(0, 10)
     for (const item of itemsToLog) {
       const last = logsForExercise(item.slug).at(-1)
-      addLog({
-        exerciseSlug: item.slug,
-        weight: last?.weight ?? 0,
-        reps: item.reps,
-        date: today,
-        note: `${templateName} — ${item.sets} sets`,
-      })
+      for (let i = 0; i < item.sets; i++) {
+        addLog({
+          exerciseSlug: item.slug,
+          weight: last?.weight ?? 0,
+          reps: item.reps,
+          date: today,
+          note: `${templateName} — set ${i + 1}/${item.sets}`,
+        })
+      }
     }
     toast.show(`Logged all ${itemsToLog.length} exercises from ${templateName}`)
   }

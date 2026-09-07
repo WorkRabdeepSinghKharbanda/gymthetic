@@ -205,6 +205,7 @@ export function getPhotos(): ProgressPhoto[] {
   }
 }
 
+/** Throws if the browser's localStorage quota is exceeded (photos are stored as base64). */
 export function addPhoto(entry: Omit<ProgressPhoto, 'id'>): ProgressPhoto[] {
   const updated = [...getPhotos(), { ...entry, id: crypto.randomUUID() }]
   localStorage.setItem(PHOTOS_KEY, JSON.stringify(updated))

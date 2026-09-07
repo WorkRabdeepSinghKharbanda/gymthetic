@@ -65,7 +65,11 @@ export default function Measurements() {
     if (!file) return
     const reader = new FileReader()
     reader.onload = () => {
-      setPhotos(addPhoto({ date: new Date().toISOString().slice(0, 10), dataUrl: reader.result as string }))
+      try {
+        setPhotos(addPhoto({ date: new Date().toISOString().slice(0, 10), dataUrl: reader.result as string }))
+      } catch {
+        alert('Could not save photo — your browser storage is full. Try deleting an older photo first.')
+      }
     }
     reader.readAsDataURL(file)
     e.target.value = ''
