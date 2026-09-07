@@ -62,8 +62,17 @@ export default function Templates() {
   function printTemplate(name: string, items: TemplateItem[]) {
     printWorkoutSheet(
       name,
-      ['#', 'Exercise', 'Sets', 'Reps', 'Weight'],
-      items.map((item, i) => [String(i + 1), getExerciseBySlug(item.slug)?.name ?? item.slug, String(item.sets), String(item.reps), '']),
+      ['#', 'Exercise', 'Sets', 'Reps', 'Last weight'],
+      items.map((item, i) => {
+        const last = logsForExercise(item.slug).at(-1)
+        return [
+          String(i + 1),
+          getExerciseBySlug(item.slug)?.name ?? item.slug,
+          String(item.sets),
+          String(item.reps),
+          last ? `${last.weight}kg` : '—',
+        ]
+      }),
     )
   }
 

@@ -4,7 +4,10 @@ function escapeHtml(s: string): string {
 
 /** Opens a new tab with a clean printable table and triggers the print dialog. */
 export function printWorkoutSheet(title: string, headers: string[], rows: string[][]) {
-  const win = window.open('', '_blank', 'noopener,noreferrer')
+  // No `noopener` here: the target is an empty, same-origin window we populate ourselves
+  // (no untrusted destination to isolate from), and `noopener` makes window.open() return
+  // null per spec — which would make this feature silently do nothing.
+  const win = window.open('', '_blank', 'noreferrer')
   if (!win) return
 
   const headerHtml = headers.map((h) => `<th>${escapeHtml(h)}</th>`).join('')
