@@ -49,6 +49,7 @@ export default function NumberField({
     const parsed = Number(text)
     const clamped = clamp(Number.isNaN(parsed) ? min : parsed)
     setText(String(clamped))
+    if (clamped === lastEmitted.current) return
     lastEmitted.current = clamped
     onChange(clamped)
   }

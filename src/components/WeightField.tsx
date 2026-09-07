@@ -18,6 +18,7 @@ export default function WeightField({
 }) {
   const { unit } = useUnit()
   const displayValue = unit === 'lb' ? Math.round(kgToLb(valueKg) * 10) / 10 : valueKg
+  const displayMin = unit === 'lb' ? Math.round(kgToLb(min)) : min
   const displayMax = unit === 'lb' ? Math.round(kgToLb(max)) : max
 
   function handleChange(v: number) {
@@ -29,7 +30,7 @@ export default function WeightField({
       label={`${label} (${unit})`}
       value={displayValue}
       onChange={handleChange}
-      min={min}
+      min={displayMin}
       max={displayMax}
       step={unit === 'lb' ? 5 : 2.5}
     />

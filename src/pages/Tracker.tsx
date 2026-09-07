@@ -111,7 +111,7 @@ export default function Tracker() {
     })
     setLogsState(updated)
     setNote('')
-    toast.show(`Logged ${exercise?.name ?? 'lift'} — ${weight}kg × ${reps}`)
+    toast.show(`Logged ${exercise?.name ?? 'lift'} — ${formatWeight(weight, unit)} × ${reps}`)
   }
 
   function handleFormKeyDown(e: React.KeyboardEvent) {

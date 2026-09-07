@@ -15,6 +15,16 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
+
+  // Client-side routes (e.g. /badges) aren't individually cached — vercel.json rewrites
+  // them all to index.html, so fall back to the cached shell for any uncached navigation.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match('/index.html').then((r) => r || caches.match('/'))),
+    )
+    return
+  }
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetchPromise = fetch(event.request)
