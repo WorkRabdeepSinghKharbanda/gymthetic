@@ -14,6 +14,7 @@ export default function ExerciseDetail() {
   const alternatives = exercise
     ? exercises.filter((e) => e.slug !== exercise.slug && e.muscleGroup === exercise.muscleGroup && e.category === exercise.category).slice(0, 4)
     : []
+  const muscleLandingSlug = exercise ? getMuscleLandingCopy(exercise.muscleGroup)?.slug : undefined
 
   useSeo({
     title: exercise ? exercise.name : 'Exercise not found',
@@ -59,11 +60,8 @@ export default function ExerciseDetail() {
         <span className="rounded-full bg-orange-100 px-2 py-0.5 text-xs font-semibold uppercase text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
           {exercise.category}
         </span>
-        {getMuscleLandingCopy(exercise.muscleGroup) && (
-          <Link
-            to={`/${getMuscleLandingCopy(exercise.muscleGroup)!.slug}`}
-            className="text-xs text-neutral-400 hover:text-orange-500"
-          >
+        {muscleLandingSlug && (
+          <Link to={`/${muscleLandingSlug}`} className="text-xs text-neutral-400 hover:text-orange-500">
             See all {exercise.muscleGroup} exercises →
           </Link>
         )}
