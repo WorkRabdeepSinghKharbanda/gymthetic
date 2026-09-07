@@ -58,6 +58,21 @@ export default function Home() {
         <MuscleGroupNav />
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pb-12">
+        <h2 className="mb-4 text-xl font-bold text-neutral-900 dark:text-white">Guides</h2>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <Link to="/guides/push-pull-legs-split" className="rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium text-neutral-700 hover:border-orange-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
+            Push Pull Legs (PPL) Split: The Complete Guide
+          </Link>
+          <Link to="/guides/how-to-calculate-your-1rm" className="rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium text-neutral-700 hover:border-orange-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
+            How to Calculate Your One-Rep Max (1RM)
+          </Link>
+          <Link to="/guides/breaking-a-strength-plateau" className="rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium text-neutral-700 hover:border-orange-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
+            How to Break a Strength Training Plateau
+          </Link>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <TodaysFocus />
       </section>

@@ -2,5 +2,47 @@ User-agent: *
 Allow: /
 Disallow: /tracker
 Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
+
+# AI assistants / answer engines — explicitly allowed to crawl and cite this site.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Machine-readable site summary for LLMs (see https://llmstxt.org)
+# https://gymthetic.vercel.app/llms.txt
 
 Sitemap: https://gymthetic.vercel.app/sitemap.xml

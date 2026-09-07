@@ -19,6 +19,10 @@ import Goals from './pages/Goals'
 import Templates from './pages/Templates'
 import Badges from './pages/Badges'
 import Standards from './pages/Standards'
+import Guides from './pages/Guides'
+import PushPullLegs from './pages/guides/PushPullLegs'
+import OneRepMaxGuide from './pages/guides/OneRepMaxGuide'
+import PlateauGuide from './pages/guides/PlateauGuide'
 
 export default function App() {
   return (
@@ -42,6 +46,10 @@ export default function App() {
           <Route path="/templates" element={<Templates />} />
           <Route path="/badges" element={<Badges />} />
           <Route path="/standards" element={<Standards />} />
+          <Route path="/guides" element={<Guides />} />
+          <Route path="/guides/push-pull-legs-split" element={<PushPullLegs />} />
+          <Route path="/guides/how-to-calculate-your-1rm" element={<OneRepMaxGuide />} />
+          <Route path="/guides/breaking-a-strength-plateau" element={<PlateauGuide />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>

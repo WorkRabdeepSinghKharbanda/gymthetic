@@ -6,6 +6,7 @@ import { useUnit } from '../hooks/useUnit'
 const links = [
   { to: '/', label: 'Home' },
   { to: '/exercises', label: 'Exercises' },
+  { to: '/guides', label: 'Guides' },
   { to: '/calculators', label: 'Calculators' },
   { to: '/tracker', label: 'Tracker' },
   { to: '/records', label: 'Records' },

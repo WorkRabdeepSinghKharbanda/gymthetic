@@ -14,8 +14,9 @@ export default function ExerciseLibrary() {
 
   const [params, setParams] = useSearchParams()
   const initialMuscle = params.get('muscle') as MuscleGroup | null
+  const initialCategory = params.get('category') as Category | null
   const [muscle, setMuscle] = useState<MuscleGroup | 'all'>(initialMuscle ?? 'all')
-  const [category, setCategory] = useState<Category | 'all'>('all')
+  const [category, setCategory] = useState<Category | 'all'>(initialCategory ?? 'all')
   const [query, setQuery] = useState('')
   const [favoritesOnly, setFavoritesOnly] = useState(false)
   const { favorites, isFavorite, toggle } = useFavorites()
@@ -36,6 +37,13 @@ export default function ExerciseLibrary() {
     setMuscle(m)
     if (m === 'all') params.delete('muscle')
     else params.set('muscle', m)
+    setParams(params, { replace: true })
+  }
+
+  function selectCategory(c: Category | 'all') {
+    setCategory(c)
+    if (c === 'all') params.delete('category')
+    else params.set('category', c)
     setParams(params, { replace: true })
   }
 
@@ -64,9 +72,9 @@ export default function ExerciseLibrary() {
         ))}
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
-        <FilterPill active={category === 'all'} onClick={() => setCategory('all')} label="All types" />
+        <FilterPill active={category === 'all'} onClick={() => selectCategory('all')} label="All types" />
         {categories.map((c) => (
-          <FilterPill key={c} active={category === c} onClick={() => setCategory(c)} label={c} />
+          <FilterPill key={c} active={category === c} onClick={() => selectCategory(c)} label={c} />
         ))}
       </div>
 

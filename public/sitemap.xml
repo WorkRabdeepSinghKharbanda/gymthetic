@@ -55,6 +55,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://gymthetic.vercel.app/guides</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/guides/push-pull-legs-split</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/guides/how-to-calculate-your-1rm</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/guides/breaking-a-strength-plateau</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://gymthetic.vercel.app/exercises/barbell-bench-press</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>

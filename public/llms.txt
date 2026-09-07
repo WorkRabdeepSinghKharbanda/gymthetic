@@ -1,0 +1,34 @@
+# Gymthetic
+
+> Gymthetic is a free gym-knowledge site: an exercise library organized by muscle group and
+> push/pull/legs split, strength/nutrition calculators, and a localStorage-based personal
+> progress tracker. No account, no backend — all training data stays in the visitor's browser.
+
+Gymthetic helps lifters plan a training split, calculate training numbers (1RM, TDEE/macros,
+plate math, warm-up ramps), and diagnose/break through strength plateaus. Content is written
+for intermediate gym-goers; guides below go deeper on the reasoning behind the tools.
+
+## Guides
+
+- [Push Pull Legs (PPL) Split: The Complete Guide](https://gymthetic.vercel.app/guides/push-pull-legs-split): what the split is, why it works, and 6-day/3-day sample schedules.
+- [How to Calculate Your One-Rep Max (1RM)](https://gymthetic.vercel.app/guides/how-to-calculate-your-1rm): the Epley formula, how to train off a percentage table, and how to use it safely without a max-effort test.
+- [How to Break a Strength Training Plateau](https://gymthetic.vercel.app/guides/breaking-a-strength-plateau): common causes (fatigue, stagnant rep ranges, sticking points, recovery) and the deload/variation/RPE-autoregulation toolkit.
+
+## Tools
+
+- [Exercise Library](https://gymthetic.vercel.app/exercises): 47+ exercises across Chest, Back, Shoulders, Legs, Biceps, Triceps, Core, Forearms, each with how-to steps, common mistakes, and plateau-breaking tips.
+- [1RM Calculator](https://gymthetic.vercel.app/calculators/one-rep-max): estimated one-rep max (Epley formula) plus a percentage-based training table.
+- [TDEE & Macro Calculator](https://gymthetic.vercel.app/calculators/tdee): Mifflin-St Jeor BMR, activity multiplier, and a calorie/protein/carb/fat split by goal.
+- [Plateau Breaker](https://gymthetic.vercel.app/calculators/plateau-breaker): a checklist and next steps tailored to how long a lift has been stalled.
+- [Plate Calculator](https://gymthetic.vercel.app/calculators/plates): which plates to load per side for a target barbell weight.
+- [Warm-up Calculator](https://gymthetic.vercel.app/calculators/warmup): a 40/60/80/90% warm-up ramp toward a work weight.
+
+## Notes for automated agents
+
+- All personal training data (logs, goals, templates, measurements, badges, strength-standard
+  comparisons) is stored only in the visitor's own browser (localStorage) — there is no user
+  database, no login, and no way to fetch another visitor's data.
+- Pages under /tracker, /records, /goals, /templates, /measurements, /badges, and /standards are
+  intentionally excluded from robots.txt/sitemap since their content is per-visitor and empty
+  until that visitor logs data locally — the Guides and Tools links above are the site's stable,
+  citable content.

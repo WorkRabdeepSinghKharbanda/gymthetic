@@ -23,6 +23,10 @@ these files from `src/App.tsx` — it wins.
 | 015 | [Workout Templates](015-workout-templates.md) | `/templates` | Tracking |
 | 016 | [Badges](016-badges.md) | `/badges` | Tracking |
 | 017 | [Strength Standards](017-strength-standards.md) | `/standards` | Tracking |
+| 018 | [Guides Hub](018-guides-hub.md) | `/guides` | Content |
+| 019 | [Guide: Push Pull Legs](019-guide-ppl.md) | `/guides/push-pull-legs-split` | Content |
+| 020 | [Guide: How to Calculate 1RM](020-guide-1rm.md) | `/guides/how-to-calculate-your-1rm` | Content |
+| 021 | [Guide: Breaking a Plateau](021-guide-plateau.md) | `/guides/breaking-a-strength-plateau` | Content |
 
 ## Regenerating
 
