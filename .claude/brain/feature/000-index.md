@@ -27,6 +27,8 @@ these files from `src/App.tsx` — it wins.
 | 019 | [Guide: Push Pull Legs](019-guide-ppl.md) | `/guides/push-pull-legs-split` | Content |
 | 020 | [Guide: How to Calculate 1RM](020-guide-1rm.md) | `/guides/how-to-calculate-your-1rm` | Content |
 | 021 | [Guide: Breaking a Plateau](021-guide-plateau.md) | `/guides/breaking-a-strength-plateau` | Content |
+| 022 | [Blog Hub](022-blog-hub.md) | `/blog` | Content |
+| 023 | [Blog Post](023-blog-post.md) | `/blog/:slug` | Content |
 
 ## Regenerating
 

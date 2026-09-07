@@ -9,38 +9,117 @@ Disallow: /badges
 Disallow: /standards
 
 # AI assistants / answer engines — explicitly allowed to crawl and cite this site.
+# Each bot needs its own Disallow lines repeated: robots.txt groups don't inherit
+# from User-agent: * once a more specific user-agent matches.
 User-agent: GPTBot
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: CCBot
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 User-agent: Bytespider
 Allow: /
+Disallow: /tracker
+Disallow: /records
+Disallow: /goals
+Disallow: /templates
+Disallow: /measurements
+Disallow: /badges
+Disallow: /standards
 
 # Machine-readable site summary for LLMs (see https://llmstxt.org)
 # https://gymthetic.vercel.app/llms.txt

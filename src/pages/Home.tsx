@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import MuscleGroupNav from '../components/MuscleGroupNav'
 import TodaysFocus from '../components/TodaysFocus'
+import { sortedBlogPosts } from '../data/blogPosts'
 import { useSeo } from '../hooks/useSeo'
 
 export default function Home() {
@@ -73,8 +74,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-20">
+      <section className="mx-auto max-w-6xl px-4 pb-16">
         <TodaysFocus />
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-20">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-xl font-bold text-neutral-900 dark:text-white">From the blog</h2>
+          <Link to="/blog" className="text-sm text-orange-500 hover:underline">
+            View all
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {sortedBlogPosts()
+            .slice(0, 3)
+            .map((post) => (
+              <Link
+                key={post.slug}
+                to={`/blog/${post.slug}`}
+                className="rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium text-neutral-700 hover:border-orange-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200"
+              >
+                {post.title}
+              </Link>
+            ))}
+        </div>
       </section>
     </div>
   )

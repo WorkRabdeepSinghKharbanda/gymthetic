@@ -24,11 +24,25 @@ export default function PushPullLegs() {
     path: '/guides/push-pull-legs-split',
     jsonLd: {
       '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: 'Push Pull Legs (PPL) Split: The Complete Guide',
-      description: 'What the push/pull/legs training split is, why it works, and a sample weekly schedule.',
-      author: { '@type': 'Organization', name: 'Gymthetic' },
-      mainEntityOfPage: 'https://gymthetic.vercel.app/guides/push-pull-legs-split',
+      '@graph': [
+        {
+          '@type': 'Article',
+          headline: 'Push Pull Legs (PPL) Split: The Complete Guide',
+          description: 'What the push/pull/legs training split is, why it works, and a sample weekly schedule.',
+          author: { '@type': 'Organization', name: 'Gymthetic' },
+          mainEntityOfPage: 'https://gymthetic.vercel.app/guides/push-pull-legs-split',
+          datePublished: '2026-09-08',
+          dateModified: '2026-09-08',
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: FAQS.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ],
     },
   })
 

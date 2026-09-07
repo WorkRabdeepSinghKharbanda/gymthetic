@@ -79,6 +79,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://gymthetic.vercel.app/blog</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/5-signs-you-need-a-deload-week</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/beginner-mistakes-that-kill-progress</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/how-much-protein-do-you-need</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://gymthetic.vercel.app/exercises/barbell-bench-press</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>

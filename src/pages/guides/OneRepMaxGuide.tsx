@@ -14,6 +14,8 @@ export default function OneRepMaxGuide() {
       description: 'How the Epley formula estimates your one-rep max from a normal working set.',
       author: { '@type': 'Organization', name: 'Gymthetic' },
       mainEntityOfPage: 'https://gymthetic.vercel.app/guides/how-to-calculate-your-1rm',
+      datePublished: '2026-09-08',
+      dateModified: '2026-09-08',
     },
   })
 

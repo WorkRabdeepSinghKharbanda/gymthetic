@@ -14,6 +14,12 @@ for intermediate gym-goers; guides below go deeper on the reasoning behind the t
 - [How to Calculate Your One-Rep Max (1RM)](https://gymthetic.vercel.app/guides/how-to-calculate-your-1rm): the Epley formula, how to train off a percentage table, and how to use it safely without a max-effort test.
 - [How to Break a Strength Training Plateau](https://gymthetic.vercel.app/guides/breaking-a-strength-plateau): common causes (fatigue, stagnant rep ranges, sticking points, recovery) and the deload/variation/RPE-autoregulation toolkit.
 
+## Blog
+
+- [5 Signs You Need a Deload Week](https://gymthetic.vercel.app/blog/5-signs-you-need-a-deload-week)
+- [Beginner Mistakes That Kill Progress in the Gym](https://gymthetic.vercel.app/blog/beginner-mistakes-that-kill-progress)
+- [How Much Protein Do You Actually Need?](https://gymthetic.vercel.app/blog/how-much-protein-do-you-need)
+
 ## Tools
 
 - [Exercise Library](https://gymthetic.vercel.app/exercises): 47+ exercises across Chest, Back, Shoulders, Legs, Biceps, Triceps, Core, Forearms, each with how-to steps, common mistakes, and plateau-breaking tips.

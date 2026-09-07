@@ -14,6 +14,8 @@ export default function PlateauGuide() {
       description: 'Why lifts stall, and the toolkit for breaking through a plateau.',
       author: { '@type': 'Organization', name: 'Gymthetic' },
       mainEntityOfPage: 'https://gymthetic.vercel.app/guides/breaking-a-strength-plateau',
+      datePublished: '2026-09-08',
+      dateModified: '2026-09-08',
     },
   })
 
