@@ -5,12 +5,14 @@ export interface LogEntry {
   reps: number
   date: string // ISO date
   note?: string
+  rpe?: number
 }
 
 const LOG_KEY = 'gymthetic.logs'
 const THEME_KEY = 'gymthetic.theme'
 const FAVORITES_KEY = 'gymthetic.favorites'
 const CONSENT_KEY = 'gymthetic.consent'
+const UNIT_KEY = 'gymthetic.unit'
 
 export function getLogs(): LogEntry[] {
   try {
@@ -149,6 +151,18 @@ export function getConsent(): ConsentChoice | null {
 
 export function setConsent(choice: ConsentChoice): void {
   localStorage.setItem(CONSENT_KEY, choice)
+}
+
+export type Unit = 'kg' | 'lb'
+
+export function getUnit(): Unit {
+  return localStorage.getItem(UNIT_KEY) === 'lb' ? 'lb' : 'kg'
+}
+
+/** Persists the unit preference and notifies other mounted components via a custom event. */
+export function setUnit(unit: Unit): void {
+  localStorage.setItem(UNIT_KEY, unit)
+  window.dispatchEvent(new CustomEvent('gymthetic:unit', { detail: unit }))
 }
 
 // --- Body measurements ---

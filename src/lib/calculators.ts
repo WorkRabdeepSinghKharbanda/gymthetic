@@ -74,6 +74,26 @@ export function calcWarmup(workWeight: number, barWeight = 20): WarmupSet[] {
   }))
 }
 
+/**
+ * Rough body-recomposition read from a weight trend and a waist trend (first vs. last
+ * reading of each). Not a medical estimate — just a directional heuristic.
+ */
+export function estimateRecomposition(weightDeltaKg: number, waistDeltaCm: number): string {
+  const FLAT_KG = 0.5
+  const FLAT_CM = 0.5
+  const weightUp = weightDeltaKg > FLAT_KG
+  const weightDown = weightDeltaKg < -FLAT_KG
+  const waistUp = waistDeltaCm > FLAT_CM
+  const waistDown = waistDeltaCm < -FLAT_CM
+
+  if (weightUp && !waistUp) return 'Gaining weight with a steady or shrinking waist — looks like mostly muscle gain.'
+  if (weightDown && waistDown) return 'Losing weight and waist together — looks like fat loss.'
+  if (!weightUp && !weightDown && waistDown) return 'Weight steady, waist shrinking — a classic recomposition sign (muscle up, fat down).'
+  if (weightUp && waistUp) return 'Weight and waist both climbing — likely a surplus running a bit hot; watch waist trend.'
+  if (weightDown && !waistDown) return 'Losing weight without waist changing much — keep an eye on strength trends to rule out muscle loss.'
+  return 'No clear trend yet — log a few more weeks of weight and waist to see a direction.'
+}
+
 const AVAILABLE_PLATES = [25, 20, 15, 10, 5, 2.5, 1.25]
 
 /** Plates needed per side to hit target weight on a barbell, greedy largest-first. */

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useTheme } from '../hooks/useTheme'
+import { useUnit } from '../hooks/useUnit'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -11,10 +12,12 @@ const links = [
   { to: '/goals', label: 'Goals' },
   { to: '/templates', label: 'Templates' },
   { to: '/measurements', label: 'Measurements' },
+  { to: '/badges', label: 'Badges' },
 ]
 
 export default function Navbar() {
   const { theme, toggle } = useTheme()
+  const { unit, toggle: toggleUnit } = useUnit()
   const [open, setOpen] = useState(false)
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
@@ -38,15 +41,29 @@ export default function Navbar() {
             </NavLink>
           ))}
           <button
+            onClick={toggleUnit}
+            aria-label="Toggle unit"
+            className="ml-1 rounded-md px-2 py-1.5 text-sm font-semibold uppercase text-neutral-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+          >
+            {unit}
+          </button>
+          <button
             onClick={toggle}
             aria-label="Toggle theme"
-            className="ml-1 rounded-md p-2 text-neutral-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+            className="rounded-md p-2 text-neutral-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
           >
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
         </div>
 
         <div className="flex items-center gap-1 md:hidden">
+          <button
+            onClick={toggleUnit}
+            aria-label="Toggle unit"
+            className="rounded-md px-2 py-1.5 text-sm font-semibold uppercase text-neutral-600 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+          >
+            {unit}
+          </button>
           <button
             onClick={toggle}
             aria-label="Toggle theme"

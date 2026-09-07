@@ -5,6 +5,9 @@ import { deleteGoal, getGoals, personalRecords, setGoal } from '../lib/storage'
 import { estimate1RM } from '../lib/calculators'
 import { useSeo } from '../hooks/useSeo'
 import NumberField from '../components/NumberField'
+import WeightField from '../components/WeightField'
+import { useUnit } from '../hooks/useUnit'
+import { formatWeight } from '../lib/units'
 
 export default function Goals() {
   useSeo({
@@ -20,6 +23,7 @@ export default function Goals() {
   const [targetReps, setTargetReps] = useState(5)
   const [goals, setGoalsState] = useState(() => getGoals())
   const records = useMemo(() => personalRecords(), [goals])
+  const { unit } = useUnit()
 
   const exercisesInGroup = useMemo(() => exercises.filter((e) => e.muscleGroup === muscleGroup), [muscleGroup])
 
@@ -85,7 +89,7 @@ export default function Goals() {
               ))}
             </select>
           </label>
-          <NumberField label="Target weight (kg)" value={targetWeight} onChange={setTargetWeight} min={1} max={500} />
+          <WeightField label="Target weight" valueKg={targetWeight} onChangeKg={setTargetWeight} min={1} max={500} />
           <NumberField label="Target reps" value={targetReps} onChange={setTargetReps} min={1} max={100} />
         </div>
         <button
@@ -113,7 +117,7 @@ export default function Goals() {
                   </button>
                 </div>
                 <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                  Target: {goal.targetWeight}kg × {goal.targetReps} — {progress}% there
+                  Target: {formatWeight(goal.targetWeight, unit)} × {goal.targetReps} — {progress}% there
                 </p>
                 <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800">
                   <div className="h-full rounded-full bg-orange-500" style={{ width: `${progress}%` }} />

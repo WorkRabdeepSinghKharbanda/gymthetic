@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getExerciseBySlug } from '../data/exercises'
 import { personalRecords } from '../lib/storage'
 import { useSeo } from '../hooks/useSeo'
+import { useUnit } from '../hooks/useUnit'
+import { formatWeight } from '../lib/units'
+import ShareCard from '../components/ShareCard'
 
 export default function Records() {
   useSeo({
@@ -11,6 +15,8 @@ export default function Records() {
     noindex: true,
   })
 
+  const { unit } = useUnit()
+  const [sharingSlug, setSharingSlug] = useState<string | null>(null)
   const records = personalRecords()
   const rows = Object.entries(records)
     .map(([slug, pr]) => ({ slug, exercise: getExerciseBySlug(slug), ...pr }))
@@ -35,19 +41,32 @@ export default function Records() {
       ) : (
         <div className="mt-8 divide-y divide-neutral-200 rounded-xl border border-neutral-200 bg-white dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-900">
           {rows.map((r) => (
-            <Link
-              key={r.slug}
-              to={`/exercises/${r.slug}`}
-              className="flex items-center justify-between p-4 text-sm hover:bg-neutral-50 dark:hover:bg-neutral-800/60"
-            >
-              <div>
-                <p className="font-semibold text-neutral-900 dark:text-white">{r.exercise!.name}</p>
-                <p className="text-neutral-500 dark:text-neutral-400">
-                  {r.weight}kg × {r.reps} on {new Date(r.date).toLocaleDateString()}
-                </p>
+            <div key={r.slug} className="p-4 text-sm">
+              <div className="flex items-center justify-between">
+                <Link to={`/exercises/${r.slug}`} className="hover:text-orange-500">
+                  <p className="font-semibold text-neutral-900 dark:text-white">{r.exercise!.name}</p>
+                  <p className="text-neutral-500 dark:text-neutral-400">
+                    {formatWeight(r.weight, unit)} × {r.reps} on {new Date(r.date).toLocaleDateString()}
+                  </p>
+                </Link>
+                <div className="flex items-center gap-3">
+                  <p className="font-bold text-orange-500">{formatWeight(r.est1rm, unit)}</p>
+                  <button
+                    onClick={() => setSharingSlug((s) => (s === r.slug ? null : r.slug))}
+                    className="text-xs text-neutral-400 hover:text-orange-500"
+                  >
+                    {sharingSlug === r.slug ? 'Hide' : 'Share'}
+                  </button>
+                </div>
               </div>
-              <p className="font-bold text-orange-500">{Math.round(r.est1rm)}kg</p>
-            </Link>
+              {sharingSlug === r.slug && (
+                <ShareCard
+                  title={r.exercise!.name}
+                  value={formatWeight(r.est1rm, unit)}
+                  subtitle={`est. 1RM · ${formatWeight(r.weight, unit)} × ${r.reps}`}
+                />
+              )}
+            </div>
           ))}
         </div>
       )}

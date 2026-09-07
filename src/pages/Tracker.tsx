@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { exercises, muscleGroups, categories, getExerciseBySlug, type MuscleGroup } from '../data/exercises'
 import {
@@ -13,6 +13,7 @@ import {
   volumeTrendByCategory,
   type LogEntry,
 } from '../lib/storage'
+import { currentStreak } from '../lib/badges'
 import ProgressChart from '../components/ProgressChart'
 import LineChart from '../components/LineChart'
 import StreakHeatmap from '../components/StreakHeatmap'
@@ -20,10 +21,16 @@ import RestTimer from '../components/RestTimer'
 import HistoryList from '../components/HistoryList'
 import Toast from '../components/Toast'
 import NumberField from '../components/NumberField'
+import WeightField from '../components/WeightField'
+import ShareCard from '../components/ShareCard'
 import { useSeo } from '../hooks/useSeo'
 import { useToast } from '../hooks/useToast'
+import { useUnit } from '../hooks/useUnit'
+import { formatWeight } from '../lib/units'
 
 const PLATEAU_THRESHOLD_WEEKS = 3
+const COMPOUND_GROUPS: MuscleGroup[] = ['Legs', 'Back', 'Chest']
+const RPE_OPTIONS = [6, 7, 8, 9, 10]
 
 export default function Tracker() {
   useSeo({
@@ -43,8 +50,11 @@ export default function Tracker() {
   const [reps, setReps] = useState(8)
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
   const [note, setNote] = useState('')
+  const [rpe, setRpe] = useState<number | ''>('')
   const [logs, setLogsState] = useState<LogEntry[]>(() => getLogs())
+  const [sharingStreak, setSharingStreak] = useState(false)
   const toast = useToast()
+  const { unit } = useUnit()
 
   const exercisesInGroup = useMemo(
     () => exercises.filter((e) => e.muscleGroup === muscleGroup),
@@ -59,9 +69,20 @@ export default function Tracker() {
 
   const exercise = getExerciseBySlug(slug)
   const history = useMemo(() => logsForExercise(slug), [slug, logs])
+  const lastLog = history.at(-1)
   const plateauWeeks = weeksSinceLastPR(slug)
   const isPlateaued = plateauWeeks !== null && plateauWeeks >= PLATEAU_THRESHOLD_WEEKS
   const dates = useMemo(() => sessionDates(), [logs])
+  const streak = useMemo(() => currentStreak(dates), [dates])
+  const restDuration = exercise && COMPOUND_GROUPS.includes(exercise.muscleGroup) ? 180 : 90
+
+  // Suggested next weight: bump 2.5kg if the last session hit target reps, otherwise repeat it.
+  const suggestedWeight = lastLog ? (lastLog.reps >= reps ? lastLog.weight + 2.5 : lastLog.weight) : null
+
+  useEffect(() => {
+    if (suggestedWeight !== null) setWeight(suggestedWeight)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slug])
   const weeklyVolume = useMemo(
     () => weeklyVolumeByMuscleGroup((s) => getExerciseBySlug(s)?.muscleGroup),
     [logs],
@@ -80,10 +101,24 @@ export default function Tracker() {
   )
 
   function handleAdd() {
-    const updated = addLog({ exerciseSlug: slug, weight, reps, date, note: note.trim() || undefined })
+    const updated = addLog({
+      exerciseSlug: slug,
+      weight,
+      reps,
+      date,
+      note: note.trim() || undefined,
+      rpe: rpe === '' ? undefined : rpe,
+    })
     setLogsState(updated)
     setNote('')
     toast.show(`Logged ${exercise?.name ?? 'lift'} — ${weight}kg × ${reps}`)
+  }
+
+  function handleFormKeyDown(e: React.KeyboardEvent) {
+    if (e.key === 'Enter' && (e.target as HTMLElement).tagName !== 'SELECT') {
+      e.preventDefault()
+      handleAdd()
+    }
   }
 
   function handleDelete(id: string) {
@@ -121,7 +156,10 @@ export default function Tracker() {
         Stored locally in your browser — nothing leaves your device.
       </p>
 
-      <div className="mt-8 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+      <div
+        onKeyDown={handleFormKeyDown}
+        className="mt-8 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
+      >
         <h2 className="font-semibold text-neutral-900 dark:text-white">Log a session</h2>
         <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <label className="block">
@@ -152,7 +190,7 @@ export default function Tracker() {
               ))}
             </select>
           </label>
-          <NumberField label="Weight (kg)" value={weight} onChange={setWeight} min={0} max={500} />
+          <WeightField label="Weight" valueKg={weight} onChangeKg={setWeight} min={0} max={500} />
           <NumberField label="Reps" value={reps} onChange={setReps} min={1} max={100} />
           <label className="block">
             <span className="text-xs font-medium text-neutral-500">Date</span>
@@ -164,13 +202,56 @@ export default function Tracker() {
             />
           </label>
         </div>
+
+        {suggestedWeight !== null && Math.abs(suggestedWeight - weight) > 0.01 && (
+          <p className="mt-3 text-xs text-neutral-500 dark:text-neutral-400">
+            Suggested: {formatWeight(suggestedWeight, unit)} ({lastLog && lastLog.reps >= reps ? 'hit target reps last time' : 'repeat last weight'}) —{' '}
+            <button onClick={() => setWeight(suggestedWeight)} className="text-orange-500 hover:underline">
+              Use it
+            </button>
+          </p>
+        )}
+        {lastLog?.rpe !== undefined && (
+          <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+            Last RPE was {lastLog.rpe} —{' '}
+            {lastLog.rpe <= 7 ? 'you likely have room to add weight.' : lastLog.rpe >= 9 ? 'consider holding or backing off.' : 'about right, hold steady.'}
+          </p>
+        )}
+
+        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <label className="block">
+            <span className="text-xs font-medium text-neutral-500">Date</span>
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-2 py-2 text-sm dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
+            />
+          </label>
+          <label className="block">
+            <span className="text-xs font-medium text-neutral-500">RPE (optional)</span>
+            <select
+              value={rpe}
+              onChange={(e) => setRpe(e.target.value === '' ? '' : Number(e.target.value))}
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-2 py-2 text-sm dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
+            >
+              <option value="">—</option>
+              {RPE_OPTIONS.map((r) => (
+                <option key={r} value={r}>
+                  {r}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
         <label className="mt-4 block">
-          <span className="text-xs font-medium text-neutral-500">Notes / RPE (optional)</span>
+          <span className="text-xs font-medium text-neutral-500">Notes (optional)</span>
           <input
             type="text"
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            placeholder="e.g. RPE 8, felt strong"
+            placeholder="e.g. felt strong"
             className="mt-1 w-full rounded-lg border border-neutral-300 bg-white px-2 py-2 text-sm dark:border-neutral-700 dark:bg-neutral-900 dark:text-white"
           />
         </label>
@@ -201,7 +282,7 @@ export default function Tracker() {
       )}
 
       <div className="mt-8">
-        <RestTimer />
+        <RestTimer initialDuration={restDuration} />
       </div>
 
       <div className="mt-8">
@@ -275,9 +356,22 @@ export default function Tracker() {
       </div>
 
       <div className="mt-8">
-        <h2 className="font-semibold text-neutral-900 dark:text-white">Consistency streak</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="font-semibold text-neutral-900 dark:text-white">Consistency streak</h2>
+          {streak > 0 && (
+            <button onClick={() => setSharingStreak((v) => !v)} className="text-xs text-neutral-400 hover:text-orange-500">
+              {sharingStreak ? 'Hide' : 'Share'}
+            </button>
+          )}
+        </div>
         <div className="mt-3 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
-          <StreakHeatmap dates={dates} />
+          <p className="text-sm text-neutral-500 dark:text-neutral-400">Current streak: {streak} day{streak === 1 ? '' : 's'}</p>
+          <div className="mt-2">
+            <StreakHeatmap dates={dates} />
+          </div>
+          {sharingStreak && (
+            <ShareCard title="Training streak" value={`${streak} day${streak === 1 ? '' : 's'}`} subtitle="consecutive days trained" />
+          )}
         </div>
       </div>
 

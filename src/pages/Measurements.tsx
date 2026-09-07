@@ -12,6 +12,7 @@ import {
 import { useSeo } from '../hooks/useSeo'
 import LineChart from '../components/LineChart'
 import NumberField from '../components/NumberField'
+import { estimateRecomposition } from '../lib/calculators'
 
 const METRICS: { key: keyof Measurement; label: string }[] = [
   { key: 'weightKg', label: 'Weight (kg)' },
@@ -95,6 +96,15 @@ export default function Measurements() {
     points: entries.map((e) => e[m.key]).filter((v): v is number => typeof v === 'number'),
   })).filter((t) => t.points.length >= 2)
 
+  const recomposition = useMemo(() => {
+    const withWeight = entries.filter((e): e is Measurement & { weightKg: number } => e.weightKg !== undefined)
+    const withWaist = entries.filter((e): e is Measurement & { waistCm: number } => e.waistCm !== undefined)
+    if (withWeight.length < 2 || withWaist.length < 2) return null
+    const weightDelta = withWeight.at(-1)!.weightKg - withWeight[0].weightKg
+    const waistDelta = withWaist.at(-1)!.waistCm - withWaist[0].waistCm
+    return estimateRecomposition(weightDelta, waistDelta)
+  }, [entries])
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
       <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">Body Measurements</h1>
@@ -141,6 +151,13 @@ export default function Measurements() {
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {recomposition && (
+        <div className="mt-4 rounded-xl border border-orange-200 bg-orange-50 p-4 text-sm dark:border-orange-900/50 dark:bg-orange-900/20">
+          <p className="font-semibold text-orange-700 dark:text-orange-300">Recomposition estimate</p>
+          <p className="mt-1 text-orange-600 dark:text-orange-400">{recomposition}</p>
         </div>
       )}
 

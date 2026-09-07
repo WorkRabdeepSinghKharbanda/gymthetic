@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { LogEntry } from '../lib/storage'
+import { useUnit } from '../hooks/useUnit'
+import { formatWeight } from '../lib/units'
 
 const COMPACT_LIMIT = 20
 const PAGE_SIZE = 50
@@ -8,6 +10,7 @@ export default function HistoryList({ logs, onDelete }: { logs: LogEntry[]; onDe
   const [expanded, setExpanded] = useState(false)
   const [dayFilter, setDayFilter] = useState('')
   const [page, setPage] = useState(0)
+  const { unit } = useUnit()
 
   const reversed = useMemo(() => logs.slice().reverse(), [logs])
   const filtered = useMemo(
@@ -61,7 +64,8 @@ export default function HistoryList({ logs, onDelete }: { logs: LogEntry[]; onDe
           <div key={log.id} className="flex items-center justify-between gap-2 p-3 text-sm">
             <span className="shrink-0 text-neutral-600 dark:text-neutral-300">{log.date}</span>
             <span className="shrink-0 font-medium text-neutral-900 dark:text-white">
-              {log.weight}kg × {log.reps}
+              {formatWeight(log.weight, unit)} × {log.reps}
+              {log.rpe !== undefined && <span className="text-neutral-400"> @RPE{log.rpe}</span>}
             </span>
             {log.note && (
               <span className="flex-1 truncate text-xs italic text-neutral-400" title={log.note}>

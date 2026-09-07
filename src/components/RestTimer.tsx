@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const PRESETS = [60, 90, 120, 180]
+const PRESETS = [60, 90, 120, 180] as const
 
 function beep() {
   try {
@@ -15,10 +15,15 @@ function beep() {
   }
 }
 
-export default function RestTimer() {
-  const [duration, setDuration] = useState(90)
+export default function RestTimer({ initialDuration = 90 }: { initialDuration?: number }) {
+  const [duration, setDuration] = useState(initialDuration)
   const [remaining, setRemaining] = useState<number | null>(null)
   const running = remaining !== null
+
+  useEffect(() => {
+    if (!running) setDuration(initialDuration)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialDuration])
 
   useEffect(() => {
     if (!running) return

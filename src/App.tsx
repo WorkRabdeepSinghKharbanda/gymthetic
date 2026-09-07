@@ -17,6 +17,7 @@ import WarmupCalculator from './pages/WarmupCalculator'
 import Measurements from './pages/Measurements'
 import Goals from './pages/Goals'
 import Templates from './pages/Templates'
+import Badges from './pages/Badges'
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/measurements" element={<Measurements />} />
           <Route path="/goals" element={<Goals />} />
           <Route path="/templates" element={<Templates />} />
+          <Route path="/badges" element={<Badges />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>

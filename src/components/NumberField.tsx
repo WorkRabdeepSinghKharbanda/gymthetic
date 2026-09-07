@@ -6,6 +6,7 @@ export default function NumberField({
   onChange,
   min = 0,
   max,
+  step = 1,
   className = '',
 }: {
   label: string
@@ -13,6 +14,7 @@ export default function NumberField({
   onChange: (v: number) => void
   min?: number
   max?: number
+  step?: number
   className?: string
 }) {
   const [text, setText] = useState(String(value))
@@ -58,6 +60,7 @@ export default function NumberField({
         type="number"
         min={min}
         max={max}
+        step={step}
         value={text}
         onChange={(e) => handleChange(e.target.value)}
         onBlur={handleBlur}
