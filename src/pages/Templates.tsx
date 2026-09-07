@@ -11,6 +11,8 @@ import {
 } from '../lib/storage'
 import { useSeo } from '../hooks/useSeo'
 import { useToast } from '../hooks/useToast'
+import { useUnit } from '../hooks/useUnit'
+import { formatWeight } from '../lib/units'
 import Toast from '../components/Toast'
 import NumberField from '../components/NumberField'
 import { printWorkoutSheet } from '../lib/print'
@@ -31,6 +33,7 @@ export default function Templates() {
   const [items, setItems] = useState<TemplateItem[]>([])
   const [templates, setTemplatesState] = useState(() => getTemplates())
   const toast = useToast()
+  const { unit } = useUnit()
 
   const exercisesInGroup = useMemo(() => exercises.filter((e) => e.muscleGroup === muscleGroup), [muscleGroup])
 
@@ -70,7 +73,7 @@ export default function Templates() {
           getExerciseBySlug(item.slug)?.name ?? item.slug,
           String(item.sets),
           String(item.reps),
-          last ? `${last.weight}kg` : '—',
+          last ? formatWeight(last.weight, unit) : '—',
         ]
       }),
     )
