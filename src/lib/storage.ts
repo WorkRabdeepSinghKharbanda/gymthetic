@@ -300,3 +300,53 @@ export function deleteTemplate(id: string): WorkoutTemplate[] {
   localStorage.setItem(TEMPLATES_KEY, JSON.stringify(updated))
   return updated
 }
+
+// --- Session duration ---
+
+export interface SessionDuration {
+  date: string
+  minutes: number
+}
+
+const SESSION_DURATIONS_KEY = 'gymthetic.sessionDurations'
+
+export function getSessionDurations(): SessionDuration[] {
+  try {
+    const raw = localStorage.getItem(SESSION_DURATIONS_KEY)
+    return raw ? (JSON.parse(raw) as SessionDuration[]).sort((a, b) => a.date.localeCompare(b.date)) : []
+  } catch {
+    return []
+  }
+}
+
+/** One duration per date — logging a second session the same day overwrites, doesn't add. */
+export function saveSessionDuration(date: string, minutes: number): SessionDuration[] {
+  const updated = [...getSessionDurations().filter((s) => s.date !== date), { date, minutes }].sort((a, b) =>
+    a.date.localeCompare(b.date),
+  )
+  localStorage.setItem(SESSION_DURATIONS_KEY, JSON.stringify(updated))
+  return updated
+}
+
+// --- Reminder preference ---
+
+const REMINDERS_KEY = 'gymthetic.remindersEnabled'
+
+export function getRemindersEnabled(): boolean {
+  return localStorage.getItem(REMINDERS_KEY) === 'true'
+}
+
+export function setRemindersEnabled(enabled: boolean): void {
+  localStorage.setItem(REMINDERS_KEY, String(enabled))
+}
+
+const LAST_REMINDER_KEY = 'gymthetic.lastReminderShown'
+
+/** Date (ISO) the "log today" reminder was last shown, so it fires at most once per day. */
+export function getLastReminderDate(): string | null {
+  return localStorage.getItem(LAST_REMINDER_KEY)
+}
+
+export function setLastReminderDate(date: string): void {
+  localStorage.setItem(LAST_REMINDER_KEY, date)
+}

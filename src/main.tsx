@@ -4,8 +4,10 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { getTheme } from './lib/storage'
+import { maybeShowReminder } from './lib/reminders'
 
 document.documentElement.classList.toggle('dark', getTheme() === 'dark')
+maybeShowReminder()
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

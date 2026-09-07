@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { exercises, muscleGroups, type MuscleGroup } from '../data/exercises'
+import { printWorkoutSheet } from '../lib/print'
 
 const repSchemes = ['3x5 (strength)', '4x8 (hypertrophy)', '3x12 (endurance)', '5x5 (volume)']
 const WORKOUT_SIZE = 4
@@ -79,6 +80,18 @@ export default function TodaysFocus() {
               </li>
             ))}
           </ol>
+          <button
+            onClick={() =>
+              printWorkoutSheet(
+                `Today's Focus — ${group}`,
+                ['#', 'Exercise', 'Scheme'],
+                plan.map((item, i) => [String(i + 1), item.name, item.scheme]),
+              )
+            }
+            className="mt-4 rounded-lg border border-neutral-300 px-3 py-1.5 text-xs font-medium text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800"
+          >
+            Print
+          </button>
         </>
       )}
     </div>

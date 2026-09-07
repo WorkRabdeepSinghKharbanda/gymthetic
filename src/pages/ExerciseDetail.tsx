@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { getExerciseBySlug } from '../data/exercises'
+import { exercises, getExerciseBySlug } from '../data/exercises'
 import { personalRecords } from '../lib/storage'
 import { useFavorites } from '../hooks/useFavorites'
 import { useSeo } from '../hooks/useSeo'
@@ -10,6 +10,9 @@ export default function ExerciseDetail() {
   const exercise = slug ? getExerciseBySlug(slug) : undefined
   const { isFavorite, toggle } = useFavorites()
   const pr = slug ? personalRecords()[slug] : undefined
+  const alternatives = exercise
+    ? exercises.filter((e) => e.slug !== exercise.slug && e.muscleGroup === exercise.muscleGroup && e.category === exercise.category).slice(0, 4)
+    : []
 
   useSeo({
     title: exercise ? exercise.name : 'Exercise not found',
@@ -81,6 +84,26 @@ export default function ExerciseDetail() {
       <Section title="How to perform it" items={exercise.howTo} />
       <Section title="Common mistakes" items={exercise.commonMistakes} />
       <Section title="Break through a plateau" items={exercise.plateauTips} highlight />
+
+      {alternatives.length > 0 && (
+        <div className="mt-6">
+          <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">Alternatives</h2>
+          <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+            No equipment or injury getting in the way? Swap in one of these — same muscle group, same push/pull/legs slot.
+          </p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {alternatives.map((alt) => (
+              <Link
+                key={alt.slug}
+                to={`/exercises/${alt.slug}`}
+                className="rounded-full bg-neutral-100 px-3 py-1.5 text-sm font-medium text-neutral-700 hover:bg-orange-100 hover:text-orange-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-orange-900/40 dark:hover:text-orange-300"
+              >
+                {alt.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <Link
         to={`/tracker?exercise=${exercise.slug}`}

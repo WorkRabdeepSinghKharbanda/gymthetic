@@ -22,6 +22,7 @@ these files from `src/App.tsx` — it wins.
 | 014 | [Goals](014-goals.md) | `/goals` | Tracking |
 | 015 | [Workout Templates](015-workout-templates.md) | `/templates` | Tracking |
 | 016 | [Badges](016-badges.md) | `/badges` | Tracking |
+| 017 | [Strength Standards](017-strength-standards.md) | `/standards` | Tracking |
 
 ## Regenerating
 

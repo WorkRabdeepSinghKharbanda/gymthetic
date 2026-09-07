@@ -18,6 +18,7 @@ import Measurements from './pages/Measurements'
 import Goals from './pages/Goals'
 import Templates from './pages/Templates'
 import Badges from './pages/Badges'
+import Standards from './pages/Standards'
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/goals" element={<Goals />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/badges" element={<Badges />} />
+          <Route path="/standards" element={<Standards />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>

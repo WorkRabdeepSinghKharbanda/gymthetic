@@ -13,6 +13,7 @@ import { useSeo } from '../hooks/useSeo'
 import { useToast } from '../hooks/useToast'
 import Toast from '../components/Toast'
 import NumberField from '../components/NumberField'
+import { printWorkoutSheet } from '../lib/print'
 
 export default function Templates() {
   useSeo({
@@ -56,6 +57,14 @@ export default function Templates() {
 
   function handleDelete(id: string) {
     setTemplatesState(deleteTemplate(id))
+  }
+
+  function printTemplate(name: string, items: TemplateItem[]) {
+    printWorkoutSheet(
+      name,
+      ['#', 'Exercise', 'Sets', 'Reps', 'Weight'],
+      items.map((item, i) => [String(i + 1), getExerciseBySlug(item.slug)?.name ?? item.slug, String(item.sets), String(item.reps), '']),
+    )
   }
 
   function logAll(itemsToLog: TemplateItem[], templateName: string) {
@@ -183,6 +192,12 @@ export default function Templates() {
                     </li>
                   ))}
                 </ul>
+                <button
+                  onClick={() => printTemplate(t.name, t.items)}
+                  className="mt-3 mr-2 rounded-lg border border-neutral-300 px-4 py-1.5 text-xs font-semibold text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800"
+                >
+                  Print
+                </button>
                 <button
                   onClick={() => logAll(t.items, t.name)}
                   className="mt-3 rounded-lg bg-orange-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-orange-600"

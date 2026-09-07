@@ -5,9 +5,13 @@ import {
   addLog,
   deleteLog,
   getLogs,
+  getRemindersEnabled,
+  getSessionDurations,
   logsForExercise,
+  saveSessionDuration,
   sessionDates,
   setLogs,
+  setRemindersEnabled,
   weeksSinceLastPR,
   weeklyVolumeByMuscleGroup,
   volumeTrendByCategory,
@@ -23,6 +27,8 @@ import Toast from '../components/Toast'
 import NumberField from '../components/NumberField'
 import WeightField from '../components/WeightField'
 import ShareCard from '../components/ShareCard'
+import MuscleHeatmap from '../components/MuscleHeatmap'
+import SessionTimer from '../components/SessionTimer'
 import { useSeo } from '../hooks/useSeo'
 import { useToast } from '../hooks/useToast'
 import { useUnit } from '../hooks/useUnit'
@@ -53,8 +59,34 @@ export default function Tracker() {
   const [rpe, setRpe] = useState<number | ''>('')
   const [logs, setLogsState] = useState<LogEntry[]>(() => getLogs())
   const [sharingStreak, setSharingStreak] = useState(false)
+  const [sessionDurations, setSessionDurations] = useState(() => getSessionDurations())
+  const [remindersEnabled, setRemindersEnabledState] = useState(() => getRemindersEnabled())
   const toast = useToast()
   const { unit } = useUnit()
+
+  const avgSessionMinutes = useMemo(() => {
+    if (sessionDurations.length === 0) return null
+    return Math.round(sessionDurations.reduce((sum, s) => sum + s.minutes, 0) / sessionDurations.length)
+  }, [sessionDurations])
+
+  function handleStopTimer(minutes: number) {
+    setSessionDurations(saveSessionDuration(new Date().toISOString().slice(0, 10), minutes))
+    toast.show(`Saved session length: ${minutes} min`)
+  }
+
+  async function handleToggleReminders() {
+    if (!remindersEnabled) {
+      const permission =
+        typeof Notification === 'undefined' ? 'denied' : await Notification.requestPermission()
+      if (permission !== 'granted') {
+        toast.show('Notifications blocked — enable them in your browser settings to get reminders.')
+        return
+      }
+    }
+    const next = !remindersEnabled
+    setRemindersEnabled(next)
+    setRemindersEnabledState(next)
+  }
 
   const exercisesInGroup = useMemo(
     () => exercises.filter((e) => e.muscleGroup === muscleGroup),
@@ -281,8 +313,9 @@ export default function Tracker() {
         </div>
       )}
 
-      <div className="mt-8">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <RestTimer initialDuration={restDuration} />
+        <SessionTimer onStop={handleStopTimer} avgMinutes={avgSessionMinutes} />
       </div>
 
       <div className="mt-8">
@@ -341,16 +374,19 @@ export default function Tracker() {
           {Object.keys(weeklyVolume).length === 0 ? (
             <p className="text-sm text-neutral-500 dark:text-neutral-400">No sessions in the last 7 days.</p>
           ) : (
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {Object.entries(weeklyVolume)
-                .sort((a, b) => b[1] - a[1])
-                .map(([group, volume]) => (
-                  <div key={group} className="rounded-lg bg-neutral-50 p-3 text-center dark:bg-neutral-800/60">
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400">{group}</p>
-                    <p className="font-bold text-neutral-900 dark:text-white">{Math.round(volume)} kg</p>
-                  </div>
-                ))}
-            </div>
+            <>
+              <MuscleHeatmap volumes={weeklyVolume} />
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {Object.entries(weeklyVolume)
+                  .sort((a, b) => b[1] - a[1])
+                  .map(([group, volume]) => (
+                    <div key={group} className="rounded-lg bg-neutral-50 p-3 text-center dark:bg-neutral-800/60">
+                      <p className="text-xs text-neutral-500 dark:text-neutral-400">{group}</p>
+                      <p className="font-bold text-neutral-900 dark:text-white">{Math.round(volume)} kg</p>
+                    </div>
+                  ))}
+              </div>
+            </>
           )}
         </div>
       </div>
@@ -386,7 +422,17 @@ export default function Tracker() {
           Import data
           <input type="file" accept="application/json" onChange={handleImport} className="hidden" />
         </label>
+        <button
+          onClick={handleToggleReminders}
+          className="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800"
+        >
+          {remindersEnabled ? '🔔 Reminders on' : '🔕 Enable daily reminder'}
+        </button>
       </div>
+      <p className="mt-2 text-xs text-neutral-400 dark:text-neutral-500">
+        Reminders fire only while the app is open (no server, so no true background push) — reminds you at
+        most once a day if you haven't logged a session yet.
+      </p>
 
       {toast.message && <Toast message={toast.message} />}
     </div>

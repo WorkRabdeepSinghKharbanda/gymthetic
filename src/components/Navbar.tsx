@@ -13,6 +13,7 @@ const links = [
   { to: '/templates', label: 'Templates' },
   { to: '/measurements', label: 'Measurements' },
   { to: '/badges', label: 'Badges' },
+  { to: '/standards', label: 'Standards' },
 ]
 
 export default function Navbar() {
