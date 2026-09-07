@@ -38,6 +38,12 @@ export default function Calculators() {
           description="Work out which plates to load per side for any target weight."
           icon="⚙️"
         />
+        <CalculatorCard
+          to="/calculators/warmup"
+          title="Warm-up Calculator"
+          description="Generate a warm-up ramp toward your work weight."
+          icon="🔥"
+        />
       </div>
     </div>
   )

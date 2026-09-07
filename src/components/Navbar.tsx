@@ -8,6 +8,9 @@ const links = [
   { to: '/calculators', label: 'Calculators' },
   { to: '/tracker', label: 'Tracker' },
   { to: '/records', label: 'Records' },
+  { to: '/goals', label: 'Goals' },
+  { to: '/templates', label: 'Templates' },
+  { to: '/measurements', label: 'Measurements' },
 ]
 
 export default function Navbar() {
@@ -28,7 +31,7 @@ export default function Navbar() {
           Gym<span className="text-orange-500">thetic</span>
         </NavLink>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden flex-wrap items-center justify-end gap-1 md:flex">
           {links.map((link) => (
             <NavLink key={link.to} to={link.to} end={link.to === '/'} className={linkClass}>
               {link.label}

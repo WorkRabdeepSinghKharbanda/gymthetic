@@ -13,6 +13,10 @@ import PlateCalculator from './pages/PlateCalculator'
 import Tracker from './pages/Tracker'
 import Records from './pages/Records'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import WarmupCalculator from './pages/WarmupCalculator'
+import Measurements from './pages/Measurements'
+import Goals from './pages/Goals'
+import Templates from './pages/Templates'
 
 export default function App() {
   return (
@@ -28,8 +32,12 @@ export default function App() {
           <Route path="/calculators/tdee" element={<TDEE />} />
           <Route path="/calculators/plateau-breaker" element={<PlateauBreaker />} />
           <Route path="/calculators/plates" element={<PlateCalculator />} />
+          <Route path="/calculators/warmup" element={<WarmupCalculator />} />
           <Route path="/tracker" element={<Tracker />} />
           <Route path="/records" element={<Records />} />
+          <Route path="/measurements" element={<Measurements />} />
+          <Route path="/goals" element={<Goals />} />
+          <Route path="/templates" element={<Templates />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>

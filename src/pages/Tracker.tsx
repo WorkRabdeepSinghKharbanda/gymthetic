@@ -187,6 +187,10 @@ export default function Tracker() {
           <p className="font-semibold text-red-700 dark:text-red-300">
             No new estimated 1RM on {exercise.name} in {plateauWeeks}+ weeks — looks like a plateau.
           </p>
+          <p className="mt-1 text-red-600 dark:text-red-400">
+            Consider a deload week first: cut volume ~40-50% at the same intensity, then resume normal
+            programming.
+          </p>
           <Link
             to={`/calculators/plateau-breaker?exercise=${slug}`}
             className="mt-1 inline-block text-red-600 underline dark:text-red-400"

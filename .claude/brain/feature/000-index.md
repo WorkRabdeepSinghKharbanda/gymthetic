@@ -16,6 +16,11 @@ these files from `src/App.tsx` — it wins.
 | 008 | [Plate Calculator](008-plate-calculator.md) | `/calculators/plates` | Calculators |
 | 009 | [Progress Tracker](009-progress-tracker.md) | `/tracker` | Tracking |
 | 010 | [Personal Records](010-personal-records.md) | `/records` | Tracking |
+| 011 | [Privacy Policy](011-privacy-policy.md) | `/privacy` | Content |
+| 012 | [Warm-up Calculator](012-warmup-calculator.md) | `/calculators/warmup` | Calculators |
+| 013 | [Body Measurements](013-body-measurements.md) | `/measurements` | Tracking |
+| 014 | [Goals](014-goals.md) | `/goals` | Tracking |
+| 015 | [Workout Templates](015-workout-templates.md) | `/templates` | Tracking |
 
 ## Regenerating
 
@@ -26,3 +31,9 @@ these files from `src/App.tsx` — it wins.
    and remove its row above.
 4. Renumber only if you're rebuilding the whole set — otherwise keep existing
    numbers stable so links elsewhere don't rot.
+
+## Keeping this in sync
+
+Whenever a new feature/route ships, add its brain file and index row in the
+**same change** — see `.claude/rules/brain-sync.md`. Don't let this index lag
+behind `src/App.tsx`.

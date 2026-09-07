@@ -52,6 +52,28 @@ export function calcMacros(tdee: number, goal: Goal, weightKg: number): MacroRes
   return { calories, proteinG, carbsG, fatG: Math.max(fatG, 0), }
 }
 
+const WARMUP_STEPS = [
+  { percent: 40, reps: 8 },
+  { percent: 60, reps: 5 },
+  { percent: 80, reps: 3 },
+  { percent: 90, reps: 1 },
+]
+
+export interface WarmupSet {
+  percent: number
+  reps: number
+  weight: number
+}
+
+/** Warm-up ramp toward a work weight, rounded to the nearest 2.5kg plate step. */
+export function calcWarmup(workWeight: number, barWeight = 20): WarmupSet[] {
+  return WARMUP_STEPS.map(({ percent, reps }) => ({
+    percent,
+    reps,
+    weight: Math.max(barWeight, Math.round((workWeight * (percent / 100)) / 2.5) * 2.5),
+  }))
+}
+
 const AVAILABLE_PLATES = [25, 20, 15, 10, 5, 2.5, 1.25]
 
 /** Plates needed per side to hit target weight on a barbell, greedy largest-first. */

@@ -13,5 +13,9 @@ disagree (the index file explains how).
 
 ## Workflow
 
+Before starting any work, read everything in `.claude/rules/` — it's short and
+governs how this repo is worked on.
+
 See `.claude/rules/branching.md` for branching (there isn't one — direct to
-master) and the required post-push deploy step.
+master) and the required post-push deploy step. See `.claude/rules/brain-sync.md`
+for keeping the feature inventory current whenever a route ships.

@@ -49,6 +49,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://gymthetic.vercel.app/calculators/warmup</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://gymthetic.vercel.app/exercises/barbell-bench-press</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>

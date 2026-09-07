@@ -14,9 +14,12 @@ function shuffle<T>(arr: T[]): T[] {
   return copy
 }
 
+const SUPERSET_LABELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+
 export default function TodaysFocus() {
   const [group, setGroup] = useState<MuscleGroup>(muscleGroups[0])
   const [plan, setPlan] = useState<{ name: string; slug: string; scheme: string }[]>([])
+  const [supersetMode, setSupersetMode] = useState(false)
 
   function randomize() {
     const pool = shuffle(exercises.filter((e) => e.muscleGroup === group)).slice(0, WORKOUT_SIZE)
@@ -53,19 +56,30 @@ export default function TodaysFocus() {
         >
           Surprise me
         </button>
+        <label className="flex items-center gap-1.5 text-sm text-neutral-600 dark:text-neutral-300">
+          <input type="checkbox" checked={supersetMode} onChange={(e) => setSupersetMode(e.target.checked)} />
+          Superset mode
+        </label>
       </div>
       {plan.length > 0 && (
-        <ol className="mt-4 space-y-2 text-sm text-neutral-700 dark:text-neutral-200">
-          {plan.map((item, i) => (
-            <li key={item.slug} className="flex items-baseline gap-2">
-              <span className="text-neutral-400">{i + 1}.</span>
-              <Link to={`/exercises/${item.slug}`} className="font-semibold text-orange-500 hover:underline">
-                {item.name}
-              </Link>
-              <span className="text-neutral-500 dark:text-neutral-400">— {item.scheme}</span>
-            </li>
-          ))}
-        </ol>
+        <>
+          {supersetMode && (
+            <p className="mt-3 text-xs text-neutral-500 dark:text-neutral-400">
+              Pair up exercises sharing a letter — rest only after finishing both, not after each one.
+            </p>
+          )}
+          <ol className="mt-4 space-y-2 text-sm text-neutral-700 dark:text-neutral-200">
+            {plan.map((item, i) => (
+              <li key={item.slug} className="flex items-baseline gap-2">
+                <span className="text-neutral-400">{supersetMode ? SUPERSET_LABELS[i] ?? i + 1 : `${i + 1}.`}</span>
+                <Link to={`/exercises/${item.slug}`} className="font-semibold text-orange-500 hover:underline">
+                  {item.name}
+                </Link>
+                <span className="text-neutral-500 dark:text-neutral-400">— {item.scheme}</span>
+              </li>
+            ))}
+          </ol>
+        </>
       )}
     </div>
   )
