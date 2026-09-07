@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { exercises, getExerciseBySlug } from '../data/exercises'
+import { getMuscleLandingCopy } from '../data/muscleLandingCopy'
 import { personalRecords } from '../lib/storage'
 import { useFavorites } from '../hooks/useFavorites'
 import { useSeo } from '../hooks/useSeo'
@@ -58,6 +59,14 @@ export default function ExerciseDetail() {
         <span className="rounded-full bg-orange-100 px-2 py-0.5 text-xs font-semibold uppercase text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
           {exercise.category}
         </span>
+        {getMuscleLandingCopy(exercise.muscleGroup) && (
+          <Link
+            to={`/${getMuscleLandingCopy(exercise.muscleGroup)!.slug}`}
+            className="text-xs text-neutral-400 hover:text-orange-500"
+          >
+            See all {exercise.muscleGroup} exercises →
+          </Link>
+        )}
       </div>
       <div className="mt-2 flex items-center gap-2">
         <h1 className="text-3xl font-bold text-neutral-900 dark:text-white">{exercise.name}</h1>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { muscleGroups } from '../data/exercises'
+import { getMuscleLandingCopy } from '../data/muscleLandingCopy'
 
 const emoji: Record<string, string> = {
   Chest: '🎯',
@@ -18,7 +19,7 @@ export default function MuscleGroupNav() {
       {muscleGroups.map((group) => (
         <Link
           key={group}
-          to={`/exercises?muscle=${group}`}
+          to={`/${getMuscleLandingCopy(group)?.slug ?? `exercises?muscle=${group}`}`}
           className="flex flex-col items-center gap-2 rounded-xl border border-neutral-200 bg-white p-4 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-orange-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
         >
           <span className="text-2xl">{emoji[group]}</span>

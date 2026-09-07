@@ -20,6 +20,18 @@ const GUIDES = [
     description: 'Why lifts stall, and the deload/variation/autoregulation toolkit to get moving again.',
     icon: '🧗',
   },
+  {
+    to: '/beginner-workout-plan',
+    title: 'Beginner Workout Plan: Your First 3 Months',
+    description: 'A simple 3-day plan and what to actually focus on while everything is new.',
+    icon: '🌱',
+  },
+  {
+    to: '/home-gym-workout-plan',
+    title: 'No-Equipment Home Workout Plan',
+    description: 'A bodyweight-only plan using push-ups, pull-ups, planks, and lunges.',
+    icon: '🏠',
+  },
 ]
 
 export default function Guides() {

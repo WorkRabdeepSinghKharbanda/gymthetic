@@ -29,6 +29,9 @@ these files from `src/App.tsx` — it wins.
 | 021 | [Guide: Breaking a Plateau](021-guide-plateau.md) | `/guides/breaking-a-strength-plateau` | Content |
 | 022 | [Blog Hub](022-blog-hub.md) | `/blog` | Content |
 | 023 | [Blog Post](023-blog-post.md) | `/blog/:slug` | Content |
+| 024 | [Muscle Landing Pages](024-muscle-landing-pages.md) | `/best-*-exercises` (8 routes) | Content |
+| 025 | [Beginner Workout Plan](025-beginner-workout-plan.md) | `/beginner-workout-plan` | Content |
+| 026 | [Home Gym Workout Plan](026-home-gym-workout-plan.md) | `/home-gym-workout-plan` | Content |
 
 ## Regenerating
 

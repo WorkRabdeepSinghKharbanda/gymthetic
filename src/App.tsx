@@ -25,6 +25,9 @@ import OneRepMaxGuide from './pages/guides/OneRepMaxGuide'
 import PlateauGuide from './pages/guides/PlateauGuide'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
+import MuscleLanding from './pages/MuscleLanding'
+import BeginnerWorkoutPlan from './pages/landing/BeginnerWorkoutPlan'
+import HomeGymWorkoutPlan from './pages/landing/HomeGymWorkoutPlan'
 
 export default function App() {
   return (
@@ -54,6 +57,16 @@ export default function App() {
           <Route path="/guides/breaking-a-strength-plateau" element={<PlateauGuide />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/best-chest-exercises" element={<MuscleLanding group="Chest" />} />
+          <Route path="/best-back-exercises" element={<MuscleLanding group="Back" />} />
+          <Route path="/best-shoulder-exercises" element={<MuscleLanding group="Shoulders" />} />
+          <Route path="/best-leg-exercises" element={<MuscleLanding group="Legs" />} />
+          <Route path="/best-bicep-exercises" element={<MuscleLanding group="Biceps" />} />
+          <Route path="/best-tricep-exercises" element={<MuscleLanding group="Triceps" />} />
+          <Route path="/best-core-exercises" element={<MuscleLanding group="Core" />} />
+          <Route path="/best-forearm-exercises" element={<MuscleLanding group="Forearms" />} />
+          <Route path="/beginner-workout-plan" element={<BeginnerWorkoutPlan />} />
+          <Route path="/home-gym-workout-plan" element={<HomeGymWorkoutPlan />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>

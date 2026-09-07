@@ -13,12 +13,35 @@ for intermediate gym-goers; guides below go deeper on the reasoning behind the t
 - [Push Pull Legs (PPL) Split: The Complete Guide](https://gymthetic.vercel.app/guides/push-pull-legs-split): what the split is, why it works, and 6-day/3-day sample schedules.
 - [How to Calculate Your One-Rep Max (1RM)](https://gymthetic.vercel.app/guides/how-to-calculate-your-1rm): the Epley formula, how to train off a percentage table, and how to use it safely without a max-effort test.
 - [How to Break a Strength Training Plateau](https://gymthetic.vercel.app/guides/breaking-a-strength-plateau): common causes (fatigue, stagnant rep ranges, sticking points, recovery) and the deload/variation/RPE-autoregulation toolkit.
+- [Beginner Workout Plan: Your First 3 Months](https://gymthetic.vercel.app/beginner-workout-plan): a simple 3-day plan and what to focus on early on.
+- [No-Equipment Home Workout Plan](https://gymthetic.vercel.app/home-gym-workout-plan): a bodyweight-only plan using push-ups, pull-ups, planks, and lunges.
 
 ## Blog
 
 - [5 Signs You Need a Deload Week](https://gymthetic.vercel.app/blog/5-signs-you-need-a-deload-week)
 - [Beginner Mistakes That Kill Progress in the Gym](https://gymthetic.vercel.app/blog/beginner-mistakes-that-kill-progress)
 - [How Much Protein Do You Actually Need?](https://gymthetic.vercel.app/blog/how-much-protein-do-you-need)
+- [How to Warm Up Before Lifting (Properly)](https://gymthetic.vercel.app/blog/how-to-warm-up-before-lifting)
+- [Progressive Overload Explained](https://gymthetic.vercel.app/blog/progressive-overload-explained)
+- [Free Weights vs Machines: Which Should You Use?](https://gymthetic.vercel.app/blog/free-weights-vs-machines)
+- [How Often Should You Train Each Muscle Group?](https://gymthetic.vercel.app/blog/how-often-should-you-train-each-muscle-group)
+- [Compound vs Isolation Exercises Explained](https://gymthetic.vercel.app/blog/compound-vs-isolation-exercises)
+- [Why Your Bench Press Isn't Going Up](https://gymthetic.vercel.app/blog/why-your-bench-press-isnt-going-up)
+- [The Best Rep Range for Muscle Growth](https://gymthetic.vercel.app/blog/best-rep-range-for-muscle-growth)
+- [How to Fix Your Squat Depth](https://gymthetic.vercel.app/blog/how-to-fix-your-squat-depth)
+- [Should You Train to Failure?](https://gymthetic.vercel.app/blog/should-you-train-to-failure)
+- [Creatine: Does It Actually Work?](https://gymthetic.vercel.app/blog/does-creatine-actually-work)
+
+## Best-exercises pages
+
+- [Best Chest Exercises](https://gymthetic.vercel.app/best-chest-exercises)
+- [Best Back Exercises](https://gymthetic.vercel.app/best-back-exercises)
+- [Best Shoulder Exercises](https://gymthetic.vercel.app/best-shoulder-exercises)
+- [Best Leg Exercises](https://gymthetic.vercel.app/best-leg-exercises)
+- [Best Bicep Exercises](https://gymthetic.vercel.app/best-bicep-exercises)
+- [Best Tricep Exercises](https://gymthetic.vercel.app/best-tricep-exercises)
+- [Best Core Exercises](https://gymthetic.vercel.app/best-core-exercises)
+- [Best Forearm Exercises](https://gymthetic.vercel.app/best-forearm-exercises)
 
 ## Tools
 
