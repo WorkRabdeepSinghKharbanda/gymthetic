@@ -173,8 +173,8 @@ export default function Tracker() {
     file.text().then((text) => {
       try {
         const imported = JSON.parse(text) as LogEntry[]
-        const existingIds = new Set(logs.map((l) => l.id))
-        const newOnes = imported.filter((l) => !existingIds.has(l.id))
+        const seenIds = new Set(logs.map((l) => l.id))
+        const newOnes = imported.filter((l) => !seenIds.has(l.id) && seenIds.add(l.id))
         const merged = [...logs, ...newOnes].sort((a, b) => a.date.localeCompare(b.date))
         setLogs(merged)
         setLogsState(merged)
