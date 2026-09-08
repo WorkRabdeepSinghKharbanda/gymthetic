@@ -3,6 +3,8 @@ import MuscleGroupNav from '../components/MuscleGroupNav'
 import TodaysFocus from '../components/TodaysFocus'
 import { sortedBlogPosts } from '../data/blogPosts'
 import { useSeo } from '../hooks/useSeo'
+import AdSlot from '../components/AdSlot'
+import { DEFAULT_AD_SLOT } from '../lib/adsense'
 
 export default function Home() {
   useSeo({
@@ -57,6 +59,10 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-4 pb-12">
         <h2 className="mb-4 text-xl font-bold text-neutral-900 dark:text-white">Browse by muscle group</h2>
         <MuscleGroupNav />
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-12">
+        <AdSlot slotId={DEFAULT_AD_SLOT} />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12">

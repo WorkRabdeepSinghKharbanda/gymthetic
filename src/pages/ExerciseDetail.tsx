@@ -5,6 +5,8 @@ import { personalRecords } from '../lib/storage'
 import { useFavorites } from '../hooks/useFavorites'
 import { useSeo } from '../hooks/useSeo'
 import FavoriteButton from '../components/FavoriteButton'
+import AdSlot from '../components/AdSlot'
+import { DEFAULT_AD_SLOT } from '../lib/adsense'
 
 export default function ExerciseDetail() {
   const { slug } = useParams()
@@ -111,6 +113,8 @@ export default function ExerciseDetail() {
           </div>
         </div>
       )}
+
+      <AdSlot slotId={DEFAULT_AD_SLOT} className="mt-8" />
 
       <Link
         to={`/tracker?exercise=${exercise.slug}`}

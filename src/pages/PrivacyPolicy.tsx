@@ -23,10 +23,11 @@ export default function PrivacyPolicy() {
 
       <h2 className="mt-8 text-lg font-semibold text-neutral-900 dark:text-white">Advertising (Google AdSense)</h2>
       <p className="mt-2">
-        This site may display ads served by Google AdSense. If you accept the cookie-consent banner, Google
+        This site displays ads served by Google AdSense. The AdSense script loads on every visit, and Google
         and its partners may use cookies or similar technologies to serve ads based on your prior visits to
-        this or other websites. You can opt out of personalized advertising, or see which companies have
-        opted into Google's ad personalization, by visiting Google's{' '}
+        this or other websites — this does not depend on the cookie-notice choice below. You can opt out of
+        personalized advertising, or see which companies have opted into Google's ad personalization, by
+        visiting Google's{' '}
         <a
           href="https://adssettings.google.com"
           target="_blank"
@@ -35,13 +36,15 @@ export default function PrivacyPolicy() {
         >
           Ad Settings
         </a>
-        . If you decline the consent banner, no ad script is loaded and no ad-related cookies are set.
+        .
       </p>
 
-      <h2 className="mt-8 text-lg font-semibold text-neutral-900 dark:text-white">Changing your choice</h2>
+      <h2 className="mt-8 text-lg font-semibold text-neutral-900 dark:text-white">The cookie notice</h2>
       <p className="mt-2">
-        Clear this site's data in your browser (or clear <code>localStorage</code>) to reset your
-        cookie-consent choice — the banner will reappear on your next visit.
+        The Accept/Decline banner records your acknowledgement of this policy in <code>localStorage</code> but
+        does not itself control whether the AdSense script loads — it loads on every visit either way. Clear
+        this site's data in your browser to reset the recorded choice; the banner will reappear on your next
+        visit.
       </p>
     </div>
   )

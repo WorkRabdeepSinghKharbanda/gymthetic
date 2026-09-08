@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSeo } from '../hooks/useSeo'
+import AdSlot from '../components/AdSlot'
+import { DEFAULT_AD_SLOT } from '../lib/adsense'
 
 const GUIDES = [
   {
@@ -59,6 +61,8 @@ export default function Guides() {
           </Link>
         ))}
       </div>
+
+      <AdSlot slotId={DEFAULT_AD_SLOT} className="mt-8" />
     </div>
   )
 }

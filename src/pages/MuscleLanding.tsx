@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { exercises, type MuscleGroup } from '../data/exercises'
 import { getMuscleLandingCopy } from '../data/muscleLandingCopy'
 import { useSeo } from '../hooks/useSeo'
+import AdSlot from '../components/AdSlot'
+import { DEFAULT_AD_SLOT } from '../lib/adsense'
 
 export default function MuscleLanding({ group }: { group: MuscleGroup }) {
   const copy = getMuscleLandingCopy(group)
@@ -44,6 +46,8 @@ export default function MuscleLanding({ group }: { group: MuscleGroup }) {
           </Link>
         ))}
       </div>
+
+      <AdSlot slotId={DEFAULT_AD_SLOT} className="mt-8" />
 
       <div className="mt-8 flex flex-wrap gap-3">
         <Link to={`/exercises?muscle=${group}`} className="rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-600">

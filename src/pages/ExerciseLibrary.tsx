@@ -4,6 +4,8 @@ import { exercises, muscleGroups, categories, type Category, type MuscleGroup } 
 import ExerciseCard from '../components/ExerciseCard'
 import { useFavorites } from '../hooks/useFavorites'
 import { useSeo } from '../hooks/useSeo'
+import AdSlot from '../components/AdSlot'
+import { DEFAULT_AD_SLOT } from '../lib/adsense'
 
 export default function ExerciseLibrary() {
   useSeo({
@@ -83,6 +85,8 @@ export default function ExerciseLibrary() {
           <ExerciseCard key={e.slug} exercise={e} isFavorite={isFavorite(e.slug)} onToggleFavorite={() => toggle(e.slug)} />
         ))}
       </div>
+
+      <AdSlot slotId={DEFAULT_AD_SLOT} className="mt-8" />
     </div>
   )
 }

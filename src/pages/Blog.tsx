@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { sortedBlogPosts } from '../data/blogPosts'
 import { useSeo } from '../hooks/useSeo'
+import AdSlot from '../components/AdSlot'
+import { DEFAULT_AD_SLOT } from '../lib/adsense'
 
 export default function Blog() {
   useSeo({
@@ -25,6 +27,8 @@ export default function Blog() {
           </Link>
         ))}
       </div>
+
+      <AdSlot slotId={DEFAULT_AD_SLOT} className="mt-8" />
     </div>
   )
 }

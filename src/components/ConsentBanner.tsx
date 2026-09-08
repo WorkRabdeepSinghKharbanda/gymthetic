@@ -10,7 +10,7 @@ export default function ConsentBanner() {
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-neutral-200 bg-white p-4 shadow-lg dark:border-neutral-800 dark:bg-neutral-900">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-neutral-600 dark:text-neutral-300">
-          This site may show ads personalized using cookies. See our{' '}
+          This site shows ads personalized using cookies. See our{' '}
           <Link to="/privacy" className="text-orange-500 hover:underline">
             Privacy Policy
           </Link>

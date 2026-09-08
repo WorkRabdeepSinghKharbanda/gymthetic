@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { ADSENSE_PUBLISHER_ID, isAdsConfigured } from '../lib/adsense'
-import { useConsent } from '../hooks/useConsent'
 
 declare global {
   interface Window {
@@ -9,8 +8,7 @@ declare global {
 }
 
 export default function AdSlot({ slotId, className = '' }: { slotId: string; className?: string }) {
-  const { consent } = useConsent()
-  const live = isAdsConfigured() && consent === 'accepted'
+  const live = isAdsConfigured()
 
   useEffect(() => {
     if (!live) return

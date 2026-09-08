@@ -1,6 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import { getBlogPostBySlug } from '../data/blogPosts'
 import { useSeo } from '../hooks/useSeo'
+import AdSlot from '../components/AdSlot'
+import { DEFAULT_AD_SLOT } from '../lib/adsense'
 
 export default function BlogPost() {
   const { slug } = useParams()
@@ -56,6 +58,8 @@ export default function BlogPost() {
           ),
         )}
       </div>
+
+      <AdSlot slotId={DEFAULT_AD_SLOT} className="mt-10" />
     </article>
   )
 }
