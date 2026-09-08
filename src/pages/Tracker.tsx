@@ -173,12 +173,17 @@ export default function Tracker() {
     file.text().then((text) => {
       try {
         const imported = JSON.parse(text) as LogEntry[]
-        setLogs(imported)
-        setLogsState(imported)
+        const existingIds = new Set(logs.map((l) => l.id))
+        const newOnes = imported.filter((l) => !existingIds.has(l.id))
+        const merged = [...logs, ...newOnes].sort((a, b) => a.date.localeCompare(b.date))
+        setLogs(merged)
+        setLogsState(merged)
+        toast.show(`Imported ${newOnes.length} new log${newOnes.length === 1 ? '' : 's'} (${imported.length - newOnes.length} already present)`)
       } catch {
         alert('Invalid file — expected exported Gymthetic JSON.')
       }
     })
+    e.target.value = ''
   }
 
   return (
@@ -419,7 +424,7 @@ export default function Tracker() {
           Export data
         </button>
         <label className="cursor-pointer rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800">
-          Import data
+          Import data (merges, won't overwrite)
           <input type="file" accept="application/json" onChange={handleImport} className="hidden" />
         </label>
         <button
