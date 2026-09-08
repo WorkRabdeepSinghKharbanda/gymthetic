@@ -23,6 +23,7 @@ export default function BeginnerWorkoutPlan() {
     <GuideLayout
       title="Beginner Workout Plan: Your First 3 Months in the Gym"
       dek="You don't need a complicated program in year one — you need consistency, a few basic lifts, and to log what you do."
+      currentPath="/beginner-workout-plan"
     >
       <h2>Start with 3 days a week</h2>
       <p>

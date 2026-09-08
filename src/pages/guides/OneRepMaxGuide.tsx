@@ -23,6 +23,7 @@ export default function OneRepMaxGuide() {
     <GuideLayout
       title="How to Calculate Your One-Rep Max (1RM)"
       dek="Your one-rep max is the heaviest weight you could lift for a single rep — here's how to estimate it without actually attempting one."
+      currentPath="/guides/how-to-calculate-your-1rm"
     >
       <h2>Why estimate instead of test</h2>
       <p>

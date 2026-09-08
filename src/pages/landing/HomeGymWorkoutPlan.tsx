@@ -23,6 +23,7 @@ export default function HomeGymWorkoutPlan() {
     <GuideLayout
       title="No-Equipment Home Workout Plan"
       dek="Most of the exercise library assumes a barbell or a machine — here's what's actually worth doing with just your bodyweight."
+      currentPath="/home-gym-workout-plan"
     >
       <h2>What bodyweight training can and can't do</h2>
       <p>

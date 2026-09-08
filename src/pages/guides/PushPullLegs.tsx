@@ -50,6 +50,7 @@ export default function PushPullLegs() {
     <GuideLayout
       title="Push Pull Legs (PPL) Split: The Complete Guide"
       dek="A training split organized around movement pattern instead of body part — simple to program, easy to scale up or down."
+      currentPath="/guides/push-pull-legs-split"
     >
       <h2>What is a push/pull/legs split?</h2>
       <p>

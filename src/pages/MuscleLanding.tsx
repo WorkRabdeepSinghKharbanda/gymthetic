@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { exercises, type MuscleGroup } from '../data/exercises'
-import { getMuscleLandingCopy } from '../data/muscleLandingCopy'
+import { getMuscleLandingCopy, MUSCLE_LANDING_COPY } from '../data/muscleLandingCopy'
 import { useSeo } from '../hooks/useSeo'
 import AdSlot from '../components/AdSlot'
 import { DEFAULT_AD_SLOT } from '../lib/adsense'
@@ -8,6 +8,7 @@ import { DEFAULT_AD_SLOT } from '../lib/adsense'
 export default function MuscleLanding({ group }: { group: MuscleGroup }) {
   const copy = getMuscleLandingCopy(group)
   const list = exercises.filter((e) => e.muscleGroup === group)
+  const related = MUSCLE_LANDING_COPY.filter((c) => c.group !== group).slice(0, 3)
 
   useSeo({
     title: copy?.title ?? `Best ${group} Exercises`,
@@ -46,6 +47,23 @@ export default function MuscleLanding({ group }: { group: MuscleGroup }) {
           </Link>
         ))}
       </div>
+
+      {related.length > 0 && (
+        <div className="mt-8 border-t border-neutral-200 pt-6 dark:border-neutral-800">
+          <h2 className="text-lg font-bold text-neutral-900 dark:text-white">More muscle groups</h2>
+          <div className="mt-3 grid gap-3 sm:grid-cols-3">
+            {related.map((c) => (
+              <Link
+                key={c.slug}
+                to={`/${c.slug}`}
+                className="rounded-lg border border-neutral-200 bg-white p-3 text-sm font-medium text-neutral-700 hover:border-orange-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200"
+              >
+                {c.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <AdSlot slotId={DEFAULT_AD_SLOT} className="mt-8" />
 

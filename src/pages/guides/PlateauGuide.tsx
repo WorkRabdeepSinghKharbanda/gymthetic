@@ -23,6 +23,7 @@ export default function PlateauGuide() {
     <GuideLayout
       title="How to Break a Strength Training Plateau"
       dek="Every lifter stalls eventually. Here's what usually causes it, and the concrete fixes worth trying before adding more sets."
+      currentPath="/guides/breaking-a-strength-plateau"
     >
       <h2>What a plateau actually is</h2>
       <p>
