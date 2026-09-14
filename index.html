@@ -13,7 +13,14 @@
       gtag('config', 'G-4DTN9BYEP0');
     </script>
     <meta charset="UTF-8" />
+    <!-- Real PNG/ICO favicons alongside the SVG — link-preview crawlers
+         (Slack, iMessage, Google, social cards) mostly can't render SVG and
+         silently fall back to a generic platform icon otherwise. -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f97316" />
@@ -43,9 +50,10 @@
       content="Exercise library, strength calculators, and a personal progress tracker to help you plan your split and break through plateaus."
     />
     <meta property="og:url" content="https://gymthetic.vercel.app/" />
-    <meta property="og:image" content="https://gymthetic.vercel.app/og-image.svg" />
+    <meta property="og:image" content="https://gymthetic.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Gymthetic — Gym Knowledge & Progress Tracker" />
@@ -53,7 +61,7 @@
       name="twitter:description"
       content="Exercise library, strength calculators, and a personal progress tracker to help you plan your split and break through plateaus."
     />
-    <meta name="twitter:image" content="https://gymthetic.vercel.app/og-image.svg" />
+    <meta name="twitter:image" content="https://gymthetic.vercel.app/og-image.png" />
 
     <script type="application/ld+json">
       {
