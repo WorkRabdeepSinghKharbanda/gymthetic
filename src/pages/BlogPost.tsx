@@ -4,6 +4,7 @@ import { useSeo } from '../hooks/useSeo'
 import AdSlot from '../components/AdSlot'
 import RelatedPosts from '../components/RelatedPosts'
 import MarkdownBody from '../components/MarkdownBody'
+import { getDiagramForSlug } from '../components/blogDiagrams'
 import { DEFAULT_AD_SLOT } from '../lib/adsense'
 
 export default function BlogPost() {
@@ -63,6 +64,8 @@ export default function BlogPost() {
           ` · updated ${new Date(post.updated).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}`}
       </p>
       <h1 className="mt-1 text-3xl font-bold text-neutral-900 dark:text-white">{post.title}</h1>
+
+      {getDiagramForSlug(post.slug)}
 
       <div className="mt-8 space-y-4 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
         <MarkdownBody lines={post.body} />

@@ -57,6 +57,20 @@ export const blogPosts: BlogPost[] = [
       "- **Never deloading at all.** Chronic no-deload training tends to show up as a long, slow plateau that then gets misdiagnosed as \"my program doesn't work\" rather than \"I need a week of lower volume.\"",
       "## What to do after the deload",
       "Resume your normal programming at the same weights you were using before — don't restart lighter than where you left off. If a specific lift is still stuck once the deload is done, that's the point to dig into variation, sticking-point work, or a rep-range change rather than another deload; see [how to break a strength plateau](/guides/breaking-a-strength-plateau) for the full toolkit beyond just fatigue management.",
+      "## Why fatigue hides until it's already a problem",
+      "Fatigue builds on two timelines that don't move together. Local muscular fatigue — the kind that makes one muscle feel heavy — usually clears within a few days. Systemic fatigue, built up in the nervous system and connective tissue across weeks of heavy training, clears far more slowly and doesn't announce itself the same way. A session can feel perfectly fine in the muscle while the nervous system and joints are already weeks into an accumulating deficit that one good night's sleep won't fix — which is exactly why the five signs matter more than how any single session felt.",
+      "This is also why a deload works better as planned maintenance than as an emergency response. By the time pain shows up, the systemic fatigue has usually been building for a while — the five signs are a way of reading that slower signal before it turns into the faster, more obvious one.",
+      "## A sample deload week",
+      "Take whatever split you're already running and apply the same pattern to every session in it:",
+      "- Keep every exercise exactly as programmed — don't swap movements or skip lifts.",
+      "- Keep the weight on the bar at 90-100% of what you'd normally use that week.",
+      "- Cut sets roughly in half — 4 sets of squats becomes 2, 3 sets of bench becomes 1-2.",
+      "- Keep reps the same, or trim slightly if a lift still feels heavy even at reduced volume.",
+      "- Sleep and eat exactly as you normally would — a deload reduces training stress, not recovery inputs.",
+      "Most lifters find one week enough; a minority dealing with more significant accumulated fatigue extend it to a second week, still far shorter than a full program reset would require.",
+      "## More real-world examples",
+      "A powerlifter three weeks into a planned periodization block takes a scheduled deload on time even though their squat hit a small new PR the week before — here the deload is proactive maintenance within the plan, not a reaction to a stall.",
+      "A lifter who only notices joint discomfort at the bottom of a squat, with everything else feeling normal, might deload just the lower-body days while keeping upper-body training at full volume, since the fatigue signal here reads as localized rather than systemic.",
     ],
     faqs: [
       {
@@ -78,6 +92,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Can beginners skip deloads entirely?',
         a: "Usually, yes, for the first few months — new lifters add weight fast enough that fatigue rarely outpaces progress yet. Once progress slows to weekly or slower, start watching for the five signs.",
+      },
+      {
+        q: 'Should cardio volume also be cut during a deload week?',
+        a: 'If cardio is a meaningful part of your weekly fatigue load, yes — trim it proportionally the same way you trim lifting volume. If it is light and incidental, it usually does not need adjusting.',
+      },
+      {
+        q: 'Can I still try to hit a new PR during a deload week?',
+        a: "No — chasing a new max during a deload defeats the point of it. Save PR attempts for the week after, once the planned reduction in volume has actually had a chance to clear fatigue.",
       },
     ],
     relatedFeatures: [
@@ -117,6 +139,13 @@ export const blogPosts: BlogPost[] = [
       "Someone eating what feels like \"a lot\" but who comes out well under their TDEE calculator's maintenance number when they actually log a day of food explains a stalled program far better than the program itself being wrong.",
       "## The fix, all together",
       "Pick one split, log every session, eat enough for what you're actually asking your body to do, and let a plateau alert — not a hunch, not a bad mood after one session — tell you when something genuinely needs to change. Read the [beginner workout plan](/beginner-workout-plan) for a full first-three-months structure that puts all of this into one sequence.",
+      "## Why these habits feel reasonable in the moment",
+      "Each of these mistakes has a version of itself that feels like good judgment rather than a mistake: switching programs feels like being proactive about a stall, chasing weight over depth feels like progress because the number on the bar went up, skipping food tracking feels unnecessary because you \"already eat a lot.\" The common thread is that all of them substitute a feeling for a measurement, and feelings are the least reliable signal available in the first year of training, precisely because you don't yet have the experience to calibrate them accurately.",
+      "## Not tracking soreness and sleep quality",
+      "Beyond total sleep hours and food, a lot of beginners don't notice the pattern between a bad night's sleep and a bad session the next day — they chalk a rough session up to \"just an off day\" rather than connecting it to something trackable. Noting sleep quality alongside training logs for even a few weeks tends to reveal the connection clearly, which makes it much easier to prioritize recovery on the days it actually matters most.",
+      "## More real-world examples",
+      "A beginner who logs every session for eight weeks straight and notices their squat has added weight nearly every single session, while their bench has been flat for three weeks, now has specific, actionable information — rather than a vague feeling that \"the program isn't really working\" that would have applied to the whole program rather than the one lift that's actually stuck.",
+      "Someone who feels like they're eating plenty but runs their numbers through the TDEE calculator and finds they're nearly 500 calories under maintenance on an average day understands immediately why strength gains have slowed, instead of assuming the program itself is flawed.",
     ],
     faqs: [
       {
@@ -134,6 +163,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Should beginners train to failure at all?',
         a: 'Occasionally on isolation exercises, at the end of a session, is low-risk. Regularly training heavy compound lifts to true failure as a beginner adds injury risk without a proportional benefit.',
+      },
+      {
+        q: 'Is it normal for progress to slow down after the first few months?',
+        a: 'Yes — rapid "beginner gains" slow naturally as your body adapts, regardless of program quality. That slowdown is normal progression, not necessarily a sign something is wrong.',
+      },
+      {
+        q: 'How do I know if a slow week is a real plateau or just a bad week?',
+        a: 'One slow session is noise. Three or more weeks with no new estimated 1RM on a lift despite consistent training is the actual threshold worth acting on.',
       },
     ],
     relatedFeatures: [
@@ -173,6 +210,18 @@ export const blogPosts: BlogPost[] = [
       "- **Never adjusting the target when goals change.** A cut and a bulk call for different points within the range, not the same flat number regardless of what you're actually trying to do.",
       "## Put a number on it",
       "Run your stats through the [TDEE & Macro calculator](/calculators/tdee) to get a starting target, then adjust from how training and recovery actually feel over a few weeks — the calculator gives you a sound starting point, but the number that actually works for you is the one you can sustain consistently.",
+      "## Why the body has a ceiling on how much protein it uses for muscle",
+      "Muscle protein synthesis — the process that actually rebuilds muscle tissue after training — operates with a kind of saturation point per meal and per day. Once enough amino acids are available to fully drive that process, additional protein in the same meal mostly gets used for energy or stored, the same as any other macronutrient, rather than driving additional muscle repair. This is the biological reason the range has an upper bound around 2.2g/kg rather than scaling indefinitely with intake — it is not that extra protein is wasted entirely, just that it stops doing the specific job of building more muscle past that point.",
+      "## A sample day hitting the target",
+      "For a 75kg lifter aiming for roughly 150g of protein a day:",
+      "- Breakfast: eggs or a protein shake, roughly 30-35g",
+      "- Lunch: a palm-sized portion of chicken, fish, or a plant-based equivalent, roughly 35-40g",
+      "- Afternoon snack: Greek yogurt or cottage cheese, roughly 20-25g",
+      "- Dinner: a second palm-sized protein portion, roughly 35-40g",
+      "- This adds up to roughly 125-140g from food alone, with the remainder easily covered by incidental protein in other foods across the day (grains, vegetables, dairy) without needing a fifth dedicated protein-heavy meal.",
+      "## More real-world examples",
+      "A vegetarian lifter structuring meals around eggs, Greek yogurt, legumes, and a protein powder blend can hit the same 1.6-2.2g/kg range as someone eating meat — it just takes slightly more deliberate meal planning since plant-based protein sources are often less protein-dense by volume.",
+      "Someone who trains fasted in the morning and doesn't eat again until midday isn't missing a critical window — as long as total daily protein lands in range, the earlier point about timing mattering far less than total intake still holds.",
     ],
     faqs: [
       {
@@ -190,6 +239,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Do older lifters need more protein?',
         a: 'Often slightly more, toward the higher end of the range or just above it, since muscle-building efficiency per gram of protein tends to decrease somewhat with age — this is a reasonable adjustment, not a different system.',
+      },
+      {
+        q: 'Does the type of protein matter, not just the amount?',
+        a: 'Complete protein sources (meat, dairy, eggs, soy) cover all essential amino acids in one food; a varied plant-based diet across the day achieves the same coverage without needing every single meal to be "complete" on its own.',
+      },
+      {
+        q: 'Is a protein shake necessary to hit the target?',
+        a: 'No — it is a convenient way to close a gap, not a requirement. Whole foods can cover the full range on their own with reasonable meal planning.',
       },
     ],
     relatedFeatures: [
@@ -227,6 +284,17 @@ export const blogPosts: BlogPost[] = [
       "- **Using the same ramp regardless of the work weight** — a ramp built for a 60kg bench doesn't serve a 120kg bench session; scale it to the day's actual target.",
       "## Total time",
       "This whole process — general movement plus the specific ramp — takes about 5-10 minutes for most lifts, not 20-30. The goal is walking into the first real work set having already rehearsed the weight and the movement, not having burned your energy before it even starts.",
+      "## Why the specific-lift ramp beats general cardio alone",
+      "Raising body temperature with generic cardio does help, but it doesn't rehearse the neural firing pattern your nervous system needs for the exact bar path, joint angles, and bracing sequence of the lift you're about to do heavy. A ramp using the actual exercise, at increasing percentages, does both jobs at once — it raises temperature in the specific muscles involved and lets the nervous system groove the movement pattern at progressively higher loads before the heaviest rep of the day arrives.",
+      "## A full warm-up sequence, start to finish",
+      "- Minute 0-3: light cardio (bike, rower, brisk walk) to raise general body temperature.",
+      "- Minute 3-5: a few bodyweight reps of the day's main movement pattern at zero load, to rehearse the pattern before any weight is involved.",
+      "- Ramp set 1: bar only or very light weight, 8-10 reps.",
+      "- Ramp set 2: roughly 50% of target weight, 5 reps.",
+      "- Ramp set 3: roughly 70% of target weight, 3 reps.",
+      "- Ramp set 4: roughly 90% of target weight, 1-2 reps.",
+      "- Work sets: the planned weight and reps for the day.",
+      "This whole sequence is what [the warm-up calculator](/calculators/warmup) generates automatically once you enter the target weight, so there's no need to do the percentage math mid-session.",
     ],
     faqs: [
       {
@@ -244,6 +312,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Does cardio before lifting hurt strength performance?',
         a: 'A few minutes of light cardio to raise body temperature does not meaningfully hurt strength output — a long, fatiguing cardio session right before lifting would, but that\'s a different thing entirely.',
+      },
+      {
+        q: 'Do I need to warm up differently for isolation exercises?',
+        a: 'A shorter ramp is usually enough — one or two lighter sets of the isolation exercise itself, since you are typically already warm overall from earlier compound lifts in the same session.',
+      },
+      {
+        q: 'Should the warm-up ramp change in hot vs. cold environments?',
+        a: 'In a cold gym, a slightly longer general-movement phase before the ramp sets helps; in a warm one, you may need less time to reach the same readiness.',
       },
     ],
     relatedFeatures: [
@@ -282,6 +358,18 @@ export const blogPosts: BlogPost[] = [
       "- **Only ever trying to add weight.** When a weight jump isn't available or realistic, switch levers (reps, sets, rest, execution quality) instead of stalling entirely.",
       "- **Chasing overload on every single set of every session.** Overload is a weekly-or-slower trend, not something that needs to happen in every set — some sessions are maintenance, and that's fine.",
       "- **Ignoring execution quality while chasing the number.** A heavier weight moved through a smaller range of motion is not meaningfully more overload, and can actively work against the muscle you're trying to train.",
+      "## Why the body needs a reason to change at all",
+      "Muscle and strength adaptation is metabolically expensive for the body to build and maintain — physiologically, there's no incentive to add muscle or strength beyond what current demands require. Progressive overload is, in effect, a signal: a new amount of demand the body hasn't fully adapted to yet. Remove that signal (by repeating the exact same stimulus indefinitely) and the body has no reason to keep investing in bigger, stronger tissue, even if training continues on schedule.",
+      "## A sample 8-week progression using multiple levers",
+      "- Weeks 1-2: establish a baseline weight for 3 sets of 8 reps on the main lift.",
+      "- Weeks 3-4: add a rep each week once 8 is comfortably hit (3x9, then 3x10).",
+      "- Week 5: add weight and drop back to 3x8 at the new, heavier load.",
+      "- Weeks 6-7: repeat the rep-climbing pattern at the new weight.",
+      "- Week 8: add a fourth set instead of more weight, since a small plate jump isn't available — volume overload instead of load overload.",
+      "This is a realistic pattern of rotating through levers rather than expecting weight alone to climb in a straight line every single week.",
+      "## More real-world examples",
+      "A lifter whose gym only has 2.5kg plate increments, already training with the smallest realistic jump, adds a rep instead of fractional weight when a round number isn't achievable — a textbook case for the \"more reps\" lever over the \"more weight\" one.",
+      "Someone recovering from a minor injury who can't add weight or reps safely yet focuses on execution quality — slower eccentrics, fuller range of motion — as the only lever available during that recovery window, and still counts it as real progress.",
     ],
     faqs: [
       {
@@ -299,6 +387,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Is it bad to have a maintenance week with no added overload?',
         a: 'No — overload is a trend measured over weeks, not a requirement for every single session. A deload or a lighter week doesn\'t undo prior progress.',
+      },
+      {
+        q: 'Can I apply progressive overload to more than one lever at the same time?',
+        a: 'It is possible but harder to attribute progress to a specific change — most lifters find it clearer to progress one lever (usually weight or reps) at a time per lift, per block.',
+      },
+      {
+        q: 'Does progressive overload ever stop working entirely?',
+        a: "It slows as you get closer to your genetic and training-age ceiling, but it never fully stops — the levers available and the size of each increment just get smaller over years of training.",
       },
     ],
     relatedFeatures: [
@@ -333,6 +429,17 @@ export const blogPosts: BlogPost[] = [
       "- **Avoiding machines out of a belief they're \"not real training.\"** Isolation work on a machine, placed correctly in a session, is genuinely useful — it's a tool, not a lesser substitute.",
       "- **Skipping free weights entirely to avoid the learning curve.** The stabilization and coordination demand of free weights is exactly what a machines-only program is missing, and it's worth the initial learning cost.",
       "- **Using a machine with poor range-of-motion setup for your body.** Not every machine fits every body equally well — if a specific machine consistently feels wrong at your height or limb length, swap to a different variation rather than forcing it.",
+      "## Why stabilization demand is a real training cost, not just an inconvenience",
+      "When a free-weight exercise asks your body to balance a load through space, part of your total effort for that set goes toward stabilization rather than toward the target muscle's force output. That's exactly why a lifter can often move more weight on a machine chest press than a free barbell bench press for the same number of reps — the machine removes a competing demand on effort. Neither number is \"wrong\"; they're measuring slightly different things, and that's the actual reason free weights carry over to unstable, real-world movement in a way a fixed machine path structurally can't.",
+      "## A sample session combining both",
+      "- Barbell squat, free weight, 3 sets of 6-8 reps (compound, main lift, fresh).",
+      "- Barbell Romanian deadlift, free weight, 3 sets of 8-10 reps (compound, posterior chain).",
+      "- Leg press, machine, 3 sets of 10-12 reps (adds quad/glute volume without further taxing stabilizers).",
+      "- Leg extension, machine, 2-3 sets of 12-15 reps (pure isolation, safe to push close to failure).",
+      "This structure uses free weights for the lifts that benefit most from full-body stabilization and machines for the targeted finishing volume — neither category carrying the whole session alone.",
+      "## More real-world examples",
+      "A lifter recovering from a minor lower-back strain who wants to keep training legs might lean more heavily on machine work (leg press, leg extension) temporarily, since the fixed path reduces the stabilization and spinal loading demand of a free squat while the injury settles.",
+      "An athlete training for a sport that demands balance and coordination under load (most field and court sports) gets a specific carryover benefit from free-weight training that a machines-only program, however heavy, structurally cannot replicate.",
     ],
     faqs: [
       {
@@ -350,6 +457,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Can I build a full program with only dumbbells, no machines?',
         a: 'Yes — most muscle groups have a solid dumbbell-based option; check the exercise library filtered by muscle group for what\'s available without a full machine setup.',
+      },
+      {
+        q: 'Do cables count as free weights or machines?',
+        a: 'Functionally in between — cables fix the resistance path somewhat like a machine but still require some stabilization, making them a useful middle option for isolation work with a bit more stabilizer demand than a fully fixed machine.',
+      },
+      {
+        q: 'Should I switch exercises if a machine is always occupied at my gym?',
+        a: 'Yes — a free-weight equivalent targeting the same muscle is almost always available as a substitute; check the exercise library for alternatives by muscle group rather than waiting.',
       },
     ],
     relatedFeatures: [
@@ -387,6 +502,16 @@ export const blogPosts: BlogPost[] = [
       "- **Never checking whether you're actually hitting the target frequency.** It's easy to assume a split hits every muscle group twice a week without ever confirming it against what's actually been logged.",
       "## Track it, don't guess it",
       "[Gymthetic's weekly volume view](/tracker) on the tracker shows total volume per muscle group over the last 7 days, so you can see directly whether a group is actually getting hit twice a week or quietly getting skipped — a far more reliable check than assuming the split is working as designed.",
+      "## Why fresher sets actually matter, not just more of them",
+      "The quality argument behind frequency isn't just intuition — the last few sets of a long, single-session approach to a muscle group are working against accumulated local fatigue, which lowers how close to genuine effort each set actually reaches even at the same written-down weight and reps. Splitting identical total volume across two sessions means neither session has to carry the full week's fatigue load alone, so a larger share of total sets land closer to true effort — which is the part of a set that drives adaptation most directly.",
+      "## Converting a 3-day split to 6 days without relearning anything",
+      "- Keep the exact same push/pull/legs exercise selection from the 3-day version.",
+      "- Repeat the same three-day sequence a second time within the week (push, pull, legs, push, pull, legs) instead of adding a rest day after the first cycle.",
+      "- Keep weekly total volume roughly the same at first, just redistributed into smaller, more frequent chunks — add volume on top of the frequency change as a separate, later decision.",
+      "- Reassess after a few weeks: most lifters find sessions feel noticeably fresher, which is usually the first visible sign the change is working as intended.",
+      "## More real-world examples",
+      "A lifter who moves from 3-day to 6-day push/pull/legs without changing total weekly sets per muscle group often notices session quality improve before any new PR shows up — fresher sets are the first effect, with trackable strength gains typically following within a few weeks.",
+      "Someone with a demanding, unpredictable work schedule might run a flexible frequency approach — training each muscle group twice most weeks, but accepting once in weeks that get disrupted — prioritizing long-term consistency over a rigid frequency target that becomes a source of guilt rather than structure.",
     ],
     faqs: [
       {
@@ -404,6 +529,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'What if my schedule only allows 3 days a week?',
         a: 'A 3-day push/pull/legs or full-body split is a completely reasonable choice — consistency and total weekly volume matter enormously, and frequency is one factor among several, not the only one.',
+      },
+      {
+        q: 'Does frequency matter the same way for strength and for muscle size goals?',
+        a: 'The frequency benefit applies to both, though it is slightly more consistently shown for muscle size than for pure strength, where total volume and specificity to the lift matter somewhat more.',
+      },
+      {
+        q: 'How do I know if my current split actually hits twice-weekly frequency?',
+        a: "Check the tracker's weekly volume view per muscle group — it's a direct way to confirm what the split is actually delivering, rather than assuming the program design matches what's really being logged.",
       },
     ],
     relatedFeatures: [
@@ -440,6 +573,17 @@ export const blogPosts: BlogPost[] = [
       "- **Skipping compound lifts in favor of only isolation work.** This caps overall strength development and total weekly volume achievable in a reasonable session length.",
       "- **Never adding isolation work for a specific lagging muscle.** If one muscle visibly lags despite consistent compound-lift training, that's exactly the gap targeted isolation work is meant to close.",
       "- **Doing isolation work before compound lifts in the same session.** Pre-fatiguing a muscle with isolation work before the compound lift that also uses it reduces how much weight you can move on the more valuable compound exercise.",
+      "## Why compound lifts recruit more muscle without extra effort",
+      "A compound lift's efficiency comes from recruiting several muscle groups to stabilize and move the same load at once — a squat trains quads, glutes, hamstrings, and core simultaneously, in the time it takes to perform one set. An isolation exercise trades that breadth for precision: it lets you direct effort at exactly one muscle with no competing demand from stabilizing other joints, which is exactly why it's the better tool once a specific muscle, rather than overall strength, is the goal for that part of the session.",
+      "## A sample push-day structure",
+      "- Barbell bench press, 3 sets of 6-8 reps (compound, chest/shoulders/triceps).",
+      "- Overhead press, 3 sets of 6-8 reps (compound, shoulders/triceps).",
+      "- Lateral raise, 3 sets of 12-15 reps (isolation, targets lateral delts barely touched by pressing).",
+      "- Tricep pushdown, 2-3 sets of 10-12 reps (isolation, finishes tricep volume after pressing).",
+      "This structure spends the freshest part of the session on the two compound lifts that benefit most from full effort, then uses isolation work to top up volume on muscles the compound lifts only partially covered.",
+      "## More real-world examples",
+      "A lifter whose rear delts are visibly underdeveloped despite heavy pressing and rowing adds a dedicated rear-delt isolation exercise, since neither major pressing nor pulling movement directly targets that specific muscle as a prime mover.",
+      "Someone training for a time-limited 30-minute session skips isolation work entirely and runs only compound lifts that week — a reasonable trade-off that still trains every major muscle group, just with less targeted finishing volume on any single one than a longer session would allow.",
     ],
     faqs: [
       {
@@ -457,6 +601,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Should beginners focus on compound lifts first?',
         a: 'Generally yes — compound lifts give the most total-strength return for time invested early on, with isolation work added in once a base of compound-lift technique and strength is established.',
+      },
+      {
+        q: 'Can isolation exercises replace compound lifts if joint pain limits heavy compound work?',
+        a: 'To a meaningful degree, yes — isolation work lets you keep training a muscle directly while avoiding the specific joint position or load that a compound lift aggravates, though it is a workaround rather than a full substitute for the strength benefits of the compound lift itself.',
+      },
+      {
+        q: 'Does exercise order within isolation work matter?',
+        a: "Less than compound-vs-isolation ordering does — among isolation exercises, prioritizing whichever muscle lags most that session (doing it first, while freshest) is a reasonable approach.",
       },
     ],
     relatedFeatures: [
@@ -494,6 +646,15 @@ export const blogPosts: BlogPost[] = [
       "- **Never varying the rep range.** The same scheme indefinitely eventually stops producing new adaptation even with full effort.",
       "- **Ignoring setup inconsistency.** A shifting setup makes the number on the bar an unreliable measure of actual strength change.",
       "- **Skipping a deload when fatigue, not technique, is the real issue.** See [5 signs you need a deload week](/blog/5-signs-you-need-a-deload-week) if the stall is accompanied by general fatigue rather than a specific technical sticking point.",
+      "## A simple diagnostic sequence",
+      "- Step 1: Check setup consistency across your last few sessions — ask a training partner to film a few top sets, or film yourself, and compare foot position and scapular retraction rep to rep.",
+      "- Step 2: Identify exactly where reps slow down or fail — off the chest, mid-range, or at lockout — across several recent sessions, not just one.",
+      "- Step 3: If lockout is the pattern, add close-grip bench or direct tricep work for 3-4 weeks and reassess.",
+      "- Step 4: If the sticking point is consistent off the chest, that more often points to chest or front-delt strength, or a arch/leg-drive issue in the setup itself.",
+      "- Step 5: If setup and sticking point both check out fine but the number still hasn't moved in three or more weeks, treat it as a genuine plateau and run the [plateau breaker calculator](/calculators/plateau-breaker).",
+      "## More real-world examples",
+      "A lifter who films several top sets and notices their feet shift position partway through the set, right as the bar slows down, has found a setup-stability issue masquerading as a strength plateau — fixing the setup alone can move the number without any programming change.",
+      "Someone who's addressed both setup and the specific sticking point, and has also recently started sleeping poorly and feeling run-down across all their lifts, is more likely dealing with general accumulated fatigue — the deload guidance applies here more than a bench-specific fix.",
     ],
     faqs: [
       {
@@ -511,6 +672,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'How long before I try something different if bench is stalled?',
         a: 'Three or more weeks with no new estimated 1RM despite consistent training is the standard trigger to change something — see the plateau breaker calculator for next steps at that point.',
+      },
+      {
+        q: 'Could shoulder mobility be limiting my bench press?',
+        a: "Yes — limited shoulder mobility can force a less efficient bar path or prevent full scapular retraction, both of which cost strength independent of how much muscle or triceps strength you actually have.",
+      },
+      {
+        q: 'Does bench press frequency matter for this specific plateau?',
+        a: "Less than the specific limiter does — doubling bench frequency without fixing a setup or sticking-point issue just repeats the same problem more often rather than solving it.",
       },
     ],
     relatedFeatures: [
@@ -551,6 +720,16 @@ export const blogPosts: BlogPost[] = [
       "- **Confusing rep range with effort.** A set of 12 reps stopped 5 reps short of failure provides a much smaller stimulus than a set of 12 taken close to true failure — effort matters more than the specific number.",
       "## Practical takeaway",
       "Pick a rep range mostly based on what lets you train hard and consistently without excessive joint wear, and rotate ranges deliberately over time rather than treating one number as sacred. [The 1RM calculator](/calculators/one-rep-max)'s percentage table is a useful map between a target rep range and the relative intensity that produces it.",
+      "## Why effort, not rep count, is the actual driver",
+      "The mechanism behind muscle growth is mechanical tension combined with enough total fatigue in the target muscle — both low-rep heavy sets and high-rep lighter sets can reach that combination, just via a different path. A heavy 5-rep set reaches high tension quickly; a lighter 25-rep set reaches a comparable total training effect through sustained time under tension and metabolic stress instead. Rep range is really just a proxy for how you get to sufficient effort, which is why the range that matters turns out to be wider than a single fixed number.",
+      "## A sample rotation across a training block",
+      "- Weeks 1-4: main lifts in the 5-8 rep range, building a strength base.",
+      "- Weeks 5-8: main lifts in the 8-12 range, shifting emphasis toward size while retaining most of the strength built.",
+      "- Weeks 9-10: a short block in the 15-20 range on main lifts, both for variety and as a lighter, joint-friendly phase before returning to heavier work.",
+      "- Isolation work stays in the 10-15 range throughout, since it carries less total joint stress regardless of the main-lift phase.",
+      "## More real-world examples",
+      "A lifter with early-stage elbow tendon irritation that heavy low-rep tricep work aggravates shifts tricep isolation work to the 15-20 rep range at a lighter relative weight, maintaining the same training stimulus on the muscle with meaningfully less peak joint stress per rep.",
+      "Someone training for a specific strength goal (a powerlifting total, for instance) keeps the bulk of their training in the 3-6 rep range on the competition lifts, using higher-rep accessory work only to add volume without detracting from the specific low-rep strength the goal actually requires.",
     ],
     faqs: [
       {
@@ -568,6 +747,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Do high reps hurt joints more than low reps?',
         a: 'Not inherently — total joint stress depends more on absolute load and volume than rep range alone; in fact, lighter, higher-rep work can sometimes be gentler on joints for a given lifter.',
+      },
+      {
+        q: 'How many sets should I do per rep range?',
+        a: 'This depends more on total weekly volume per muscle group than on rep range specifically — the same general volume guidelines apply whether those sets happen to be in the 6-rep or 15-rep range.',
+      },
+      {
+        q: 'Should every lift in a session use the same rep range?',
+        a: 'No — it is common and effective to run main compound lifts lower-rep and isolation/accessory work higher-rep within the same session, rather than applying one range uniformly across everything.',
       },
     ],
     relatedFeatures: [
@@ -605,6 +792,15 @@ export const blogPosts: BlogPost[] = [
       "- **Ignoring depth limitations and just adding weight anyway.** This trains a smaller range of motion and can mask a mobility problem that gets harder to fix the longer it's left unaddressed.",
       "- **Static stretching ankles or hips immediately before a heavy squat session.** Save static stretching for after training or a separate mobility session, same reasoning as any other pre-lift warm-up.",
       "- **Assuming it's always ankle mobility without actually testing.** Hip mobility is a real, separate possible cause, and the fix differs depending on which one is actually limiting you.",
+      "## Why ankle mobility specifically limits squat depth",
+      "A full-depth squat requires the shin to travel a certain distance forward over the foot as the hips drop — that forward shin travel is exactly what ankle dorsiflexion measures. When that range runs out before the hips reach depth, the body compensates by either lifting the heels (trading ankle mobility for a less stable base) or by leaning the torso further forward and rounding the lower back to let the hips drop anyway. Neither compensation is a technique flaw to simply try harder against — they're the predictable result of running out of a specific, measurable range of motion.",
+      "## A simple ankle mobility test and routine",
+      "- Test: kneel facing a wall, foot flat on the floor a few inches from it, and try to touch your knee to the wall without your heel lifting. Move the foot back until you find the farthest distance where this is still possible — that distance is a rough proxy for your ankle dorsiflexion range.",
+      "- Routine: a few minutes of ankle-focused mobility work (calf stretches, weighted knee-to-wall holds, ankle circles) performed on non-squat days, tracked against the same wall test every couple of weeks to see if the distance is improving.",
+      "- Expect gradual, measurable improvement over several weeks rather than a single-session fix — mobility work compounds the same way strength training does.",
+      "## More real-world examples",
+      "A lifter who tests their ankle dorsiflexion against a wall and finds it's genuinely limited uses elevated-heel squats as the immediate fix for training, while running the wall test every two weeks to track whether dedicated mobility work is actually moving the number.",
+      "Someone whose depth is fine with a wide stance but collapses with a narrower one is seeing exactly the stance-width effect on required ankle mobility described above — adjusting stance width is a legitimate, permanent option, not just a workaround.",
     ],
     faqs: [
       {
@@ -622,6 +818,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Should I keep squatting with elevated heels permanently?',
         a: "It's a reasonable permanent choice if it genuinely improves your squat depth and comfort — it's not a temporary crutch you're obligated to wean off, though continuing mobility work can still widen your options over time.",
+      },
+      {
+        q: 'Does squat depth matter for building muscle, or only for competition lifting?',
+        a: 'It matters for both — a fuller range of motion trains the target muscles through more of their length, which is relevant to anyone training for size, not just competitive lifters with a depth standard to meet.',
+      },
+      {
+        q: 'Can poor squat depth cause knee pain?',
+        a: 'It can contribute, particularly when heel lift or excessive forward lean forces compensatory knee movement — addressing the underlying mobility limitation often reduces this alongside improving depth.',
       },
     ],
     relatedFeatures: [
@@ -659,6 +863,15 @@ export const blogPosts: BlogPost[] = [
       "- **Not tracking RPE at all, and only noticing accumulated fatigue once it's already a problem.** Logging it per set catches the trend early, the same way logging weight and reps catches a plateau early.",
       "## A practical rule",
       "Leave 1-3 reps in reserve on most main-lift sets, and save genuine failure for isolation work or the very last set of a session. Rating each set's RPE in [the tracker](/tracker) makes it straightforward to see whether you're actually following this in practice, rather than assuming you are.",
+      "## Why near-failure and true failure build similar muscle",
+      "Muscle growth is driven largely by how much of a muscle's available motor units get recruited during a set, and that recruitment climbs steeply as a set approaches failure — meaning a set stopped 1-2 reps short still recruits nearly as much of the muscle as one taken all the way to zero reps in reserve. The last 1-2 reps of true failure add disproportionately more fatigue without a comparably large increase in the recruitment that actually drives growth, which is the core reason the cost-benefit tips toward stopping just short on most sets.",
+      "## A sample week applying this selectively",
+      "- Squat, 3 sets, stopping 2 reps short of failure (RPE 8) — main compound lift, protecting form and next-day recovery.",
+      "- Leg press, 3 sets, stopping 1 rep short (RPE 9) — secondary compound, slightly closer to failure since the fixed path reduces technique-breakdown risk.",
+      "- Leg extension, final set only, taken to true failure (RPE 10) — isolation, last exercise of the session, lowest-cost place to spend a failure set.",
+      "## More real-world examples",
+      "A lifter who logs RPE consistently and notices their squat has crept from RPE 7 to RPE 9 at the same weight over three weeks is seeing accumulated fatigue directly in the numbers — the deload guidance applies here, not a decision about whether to train to failure.",
+      "Someone training alone, without a spotter, reasonably avoids true failure on free-weight bench press specifically for safety reasons, regardless of the cost-benefit argument otherwise, and shifts any planned failure work to machine or cable exercises instead.",
     ],
     faqs: [
       {
@@ -676,6 +889,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Is it safe to train deadlifts to failure?',
         a: 'Deadlift technique specifically tends to break down under failure-level fatigue in ways that carry real injury risk — it\'s one of the clearer cases where stopping a rep or two short of failure is the better default.',
+      },
+      {
+        q: 'Does training to failure speed up strength gains compared to stopping short?',
+        a: 'Not meaningfully for strength specifically — the recovery cost tends to offset any small extra stimulus, which is why most strength-focused programming defaults to stopping short on main lifts.',
+      },
+      {
+        q: 'How do I know if I am actually tracking RPE accurately over time?',
+        a: "Consistency matters more than precision — logging your own honest estimate every session, even if it is not perfectly calibrated, reveals a trend that is useful regardless of small individual rating errors.",
       },
     ],
     relatedFeatures: [
@@ -711,6 +932,15 @@ export const blogPosts: BlogPost[] = [
       "- **Stopping because of early water-weight gain.** That's expected and typically settles within a couple of weeks — it isn't fat gain and isn't a sign to quit.",
       "- **Taking it inconsistently.** Daily consistency matters more than timing relative to training or which specific protocol you follow to get there.",
       "- **Treating it as a substitute for actually eating enough protein and training consistently.** It's a small multiplier on a foundation that still has to be in place.",
+      "## Why it takes a few weeks to reach full effect",
+      "Creatine works by raising the muscle's stored reserve of a specific compound used for short, explosive efforts — and that reserve fills gradually with daily dosing rather than instantly. A flat 3-5g daily dose typically reaches full muscle saturation within roughly 3-4 weeks; a front-loaded protocol (a larger dose for the first 5-7 days) reaches the same saturation point faster, in about a week, at the cost of a more complicated routine to follow. Either path arrives at the same end state — the flat-dose approach just takes a few weeks longer to get there, which is a reasonable trade for simplicity.",
+      "## A simple way to actually remember it daily",
+      "- Keep the container next to something already part of a daily habit — a coffee maker, a water bottle, a pre-workout shaker — rather than treating it as a separate, easy-to-forget step.",
+      "- Mix it into whatever you're already drinking around that time; creatine monohydrate dissolves adequately in water, juice, or a protein shake and doesn't require anything fancier.",
+      "- Missing an occasional day doesn't meaningfully affect saturation — the muscle reserve this builds doesn't drain in a single missed day the way, say, caffeine's effect does.",
+      "## More real-world examples",
+      "Someone starting creatine alongside a new training program might not be able to tell which change (the supplement or the new program) is responsible for early strength gains — this is expected and not a sign the supplement isn't working; its effect is a small addition on top of training, not something that needs to be isolated and proven in isolation to be worth taking.",
+      "A lifter who travels frequently and can't bring a container along for a week or two doesn't need to restart with a loading phase on return — the muscle reserve depletes slowly, and a normal flat dose resumed on return reaches full saturation again within the usual few weeks.",
     ],
     faqs: [
       {
@@ -732,6 +962,14 @@ export const blogPosts: BlogPost[] = [
       {
         q: 'Does creatine work for everyone equally?',
         a: "Most people respond, though the degree varies somewhat by individual — a small minority show little measurable response, which is a known, normal variation rather than a sign something is being done wrong.",
+      },
+      {
+        q: 'Is creatine monohydrate the form to buy, or are other forms better?',
+        a: 'Creatine monohydrate is the most-studied and most cost-effective form, with no well-established evidence that other, more expensive forms outperform it for the vast majority of people.',
+      },
+      {
+        q: 'Can I take creatine on an empty stomach?',
+        a: 'Yes — there is no requirement to take it with food, though mixing it into a shake or meal you are already having is simply a convenient habit, not a necessity.',
       },
     ],
     relatedFeatures: [
