@@ -32,6 +32,8 @@ these files from `src/App.tsx` — it wins.
 | 024 | [Muscle Landing Pages](024-muscle-landing-pages.md) | `/best-*-exercises` (8 routes) | Content |
 | 025 | [Beginner Workout Plan](025-beginner-workout-plan.md) | `/beginner-workout-plan` | Content |
 | 026 | [Home Gym Workout Plan](026-home-gym-workout-plan.md) | `/home-gym-workout-plan` | Content |
+| 027 | [Alternatives Hub](027-alternatives-hub.md) | `/alternatives` | Content |
+| 028 | [Alternative Pages](028-alternative-pages.md) | `/alternatives/:slug` | Content |
 
 ## Regenerating
 

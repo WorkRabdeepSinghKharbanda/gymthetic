@@ -8,6 +8,7 @@ const links = [
   { to: '/exercises', label: 'Exercises' },
   { to: '/guides', label: 'Guides' },
   { to: '/blog', label: 'Blog' },
+  { to: '/alternatives', label: 'Alternatives' },
   { to: '/calculators', label: 'Calculators' },
   { to: '/tracker', label: 'Tracker' },
   { to: '/records', label: 'Records' },

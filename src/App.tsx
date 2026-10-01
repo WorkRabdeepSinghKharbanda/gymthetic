@@ -28,6 +28,8 @@ import BlogPost from './pages/BlogPost'
 import MuscleLanding from './pages/MuscleLanding'
 import BeginnerWorkoutPlan from './pages/landing/BeginnerWorkoutPlan'
 import HomeGymWorkoutPlan from './pages/landing/HomeGymWorkoutPlan'
+import Alternatives from './pages/Alternatives'
+import AlternativePage from './pages/AlternativePage'
 
 export default function App() {
   return (
@@ -68,6 +70,8 @@ export default function App() {
           <Route path="/beginner-workout-plan" element={<BeginnerWorkoutPlan />} />
           <Route path="/home-gym-workout-plan" element={<HomeGymWorkoutPlan />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/alternatives" element={<Alternatives />} />
+          <Route path="/alternatives/:slug" element={<AlternativePage />} />
         </Routes>
       </main>
       <Footer />
