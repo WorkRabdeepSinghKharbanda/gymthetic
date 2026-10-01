@@ -650,7 +650,7 @@ export const blogPosts: BlogPost[] = [
       "- Step 1: Check setup consistency across your last few sessions — ask a training partner to film a few top sets, or film yourself, and compare foot position and scapular retraction rep to rep.",
       "- Step 2: Identify exactly where reps slow down or fail — off the chest, mid-range, or at lockout — across several recent sessions, not just one.",
       "- Step 3: If lockout is the pattern, add close-grip bench or direct tricep work for 3-4 weeks and reassess.",
-      "- Step 4: If the sticking point is consistent off the chest, that more often points to chest or front-delt strength, or a arch/leg-drive issue in the setup itself.",
+      "- Step 4: If the sticking point is consistent off the chest, that more often points to chest or front-delt strength, or an arch/leg-drive issue in the setup itself.",
       "- Step 5: If setup and sticking point both check out fine but the number still hasn't moved in three or more weeks, treat it as a genuine plateau and run the [plateau breaker calculator](/calculators/plateau-breaker).",
       "## More real-world examples",
       "A lifter who films several top sets and notices their feet shift position partway through the set, right as the bar slows down, has found a setup-stability issue masquerading as a strength plateau — fixing the setup alone can move the number without any programming change.",
