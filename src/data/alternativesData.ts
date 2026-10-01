@@ -32,7 +32,7 @@ export const ALTERNATIVES: AlternativeEntry[] = [
       { dimension: 'Account required', competitor: 'Yes — sign-in for cloud sync', gymthetic: 'No — open the site and start logging' },
       { dimension: 'Where your data lives', competitor: "Their servers (synced to your account)", gymthetic: 'Your browser only (localStorage) — nothing leaves your device' },
       { dimension: 'Cost', competitor: 'Free tier with limits; full history/Apple Watch app behind a subscription', gymthetic: 'Every feature free, no paywall, no trial' },
-      { dimension: 'Built-in calculators', competitor: 'Basic 1RM estimate', gymthetic: '1RM, TDEE/macros, plate math, warm-up ramp, plateau breaker, and strength standards, all in one place' },
+      { dimension: 'Built-in calculators', competitor: '1RM tracking', gymthetic: '1RM, TDEE/macros, plate math, warm-up ramp, plateau breaker, and strength standards, all in one place' },
       { dimension: 'Exercise guidance', competitor: 'Exercise images and names', gymthetic: 'Written how-to steps, common mistakes, and plateau-specific tips per exercise' },
       { dimension: 'Offline use', competitor: 'Native app, fully offline', gymthetic: 'Installable as a PWA, works offline once visited' },
       { dimension: 'Cross-device sync', competitor: 'Yes, via account', gymthetic: "No — by design, no account means no server-side sync; use Export/Import JSON to carry data between devices manually" },
@@ -75,7 +75,7 @@ export const ALTERNATIVES: AlternativeEntry[] = [
       { dimension: 'Cost', competitor: 'Free tier plus a Hevy Pro subscription for deeper analytics', gymthetic: 'Every feature free' },
       { dimension: 'Social features', competitor: 'Workout feed, following other lifters, routine sharing', gymthetic: 'None — this is a personal tool, not a social app' },
       { dimension: 'Exercise database size', competitor: 'Large, with GIF demonstrations', gymthetic: '47+ exercises with written technique, common mistakes, and plateau tips per lift' },
-      { dimension: 'Built-in calculators', competitor: 'Basic 1RM tracking', gymthetic: '1RM, TDEE/macros, plate math, warm-up ramp, plateau breaker, strength standards' },
+      { dimension: 'Built-in calculators', competitor: '1RM tracking', gymthetic: '1RM, TDEE/macros, plate math, warm-up ramp, plateau breaker, strength standards' },
       { dimension: 'Cross-device sync', competitor: 'Yes, via account', gymthetic: 'No — Export/Import JSON is the manual equivalent' },
     ],
     whenCompetitorBetter: [
@@ -144,7 +144,7 @@ export const ALTERNATIVES: AlternativeEntry[] = [
       { dimension: 'Ads', competitor: 'Shown in the free tier; removed with Elite subscription', gymthetic: 'None on the Tracker or calculators — ads only appear on content pages like Blog/Guides' },
       { dimension: 'Exercise database size', competitor: 'Very large, broad coverage', gymthetic: '47+ exercises, fewer in number but each with full how-to, common mistakes, and plateau-specific tips' },
       { dimension: 'Community features', competitor: 'Workout plan sharing, community', gymthetic: 'None — personal tool, no backend' },
-      { dimension: 'Built-in calculators', competitor: 'Basic 1RM tracking', gymthetic: '1RM, TDEE/macros, plate math, warm-up ramp, plateau breaker, strength standards' },
+      { dimension: 'Built-in calculators', competitor: '1RM tracking', gymthetic: '1RM, TDEE/macros, plate math, warm-up ramp, plateau breaker, strength standards' },
       { dimension: 'Cross-device sync', competitor: 'Yes, via account', gymthetic: 'No — Export/Import JSON is the manual equivalent' },
     ],
     whenCompetitorBetter: [
