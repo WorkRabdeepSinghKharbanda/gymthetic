@@ -1,3 +1,12 @@
+/** `localStorage.getItem`, safe to call during server-side rendering (no `localStorage` global). */
+function safeGetItem(key: string): string | null {
+  try {
+    return localStorage.getItem(key)
+  } catch {
+    return null
+  }
+}
+
 export interface LogEntry {
   id: string
   exerciseSlug: string
@@ -132,8 +141,9 @@ export function toggleFavorite(slug: string): string[] {
 export type Theme = 'light' | 'dark'
 
 export function getTheme(): Theme {
-  const stored = localStorage.getItem(THEME_KEY)
+  const stored = safeGetItem(THEME_KEY)
   if (stored === 'light' || stored === 'dark') return stored
+  if (typeof window === 'undefined') return 'light' // SSR default — client hydration reconciles below
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
@@ -145,7 +155,7 @@ export function setTheme(theme: Theme): void {
 export type ConsentChoice = 'accepted' | 'declined'
 
 export function getConsent(): ConsentChoice | null {
-  const stored = localStorage.getItem(CONSENT_KEY)
+  const stored = safeGetItem(CONSENT_KEY)
   return stored === 'accepted' || stored === 'declined' ? stored : null
 }
 
@@ -156,7 +166,7 @@ export function setConsent(choice: ConsentChoice): void {
 export type Unit = 'kg' | 'lb'
 
 export function getUnit(): Unit {
-  return localStorage.getItem(UNIT_KEY) === 'lb' ? 'lb' : 'kg'
+  return safeGetItem(UNIT_KEY) === 'lb' ? 'lb' : 'kg'
 }
 
 /** Persists the unit preference and notifies other mounted components via a custom event. */
@@ -333,7 +343,7 @@ export function saveSessionDuration(date: string, minutes: number): SessionDurat
 const REMINDERS_KEY = 'gymthetic.remindersEnabled'
 
 export function getRemindersEnabled(): boolean {
-  return localStorage.getItem(REMINDERS_KEY) === 'true'
+  return safeGetItem(REMINDERS_KEY) === 'true'
 }
 
 export function setRemindersEnabled(enabled: boolean): void {
@@ -344,7 +354,7 @@ const LAST_REMINDER_KEY = 'gymthetic.lastReminderShown'
 
 /** Date (ISO) the "log today" reminder was last shown, so it fires at most once per day. */
 export function getLastReminderDate(): string | null {
-  return localStorage.getItem(LAST_REMINDER_KEY)
+  return safeGetItem(LAST_REMINDER_KEY)
 }
 
 export function setLastReminderDate(date: string): void {

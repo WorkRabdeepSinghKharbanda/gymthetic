@@ -2,506 +2,536 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gymthetic.vercel.app/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gymthetic.vercel.app/privacy</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://gymthetic.vercel.app/calculators</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/calculators/one-rep-max</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/calculators/tdee</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/calculators/plateau-breaker</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/calculators/plates</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/calculators/warmup</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/guides</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/guides/push-pull-legs-split</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/guides/how-to-calculate-your-1rm</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/guides/breaking-a-strength-plateau</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gymthetic.vercel.app/blog</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/5-signs-you-need-a-deload-week</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/beginner-mistakes-that-kill-progress</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/how-much-protein-do-you-need</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/how-to-warm-up-before-lifting</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/progressive-overload-explained</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/free-weights-vs-machines</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/how-often-should-you-train-each-muscle-group</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/compound-vs-isolation-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/why-your-bench-press-isnt-going-up</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/best-rep-range-for-muscle-growth</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/how-to-fix-your-squat-depth</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/should-you-train-to-failure</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/blog/does-creatine-actually-work</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/best-chest-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/best-back-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/best-shoulder-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/best-leg-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/best-bicep-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/best-tricep-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/best-core-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gymthetic.vercel.app/best-forearm-exercises</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://gymthetic.vercel.app/beginner-workout-plan</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/home-gym-workout-plan</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://gymthetic.vercel.app/blog</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/best-chest-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/best-back-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/best-shoulder-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/best-leg-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/best-bicep-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/best-tricep-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/best-core-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/best-forearm-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/alternatives</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/alternatives/strong-app-alternative</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/alternatives/hevy-alternative</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/alternatives/stronglifts-alternative</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/alternatives/jefit-alternative</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/privacy</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://gymthetic.vercel.app/exercises/barbell-bench-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/incline-dumbbell-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/dips</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/cable-fly</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/push-up</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/deadlift</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/barbell-row</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/pull-up</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/lat-pulldown</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/seated-cable-row</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/overhead-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/lateral-raise</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/arnold-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/face-pull</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/front-raise</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/back-squat</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/romanian-deadlift</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/leg-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/walking-lunge</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/leg-curl</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/calf-raise</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/barbell-curl</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/hammer-curl</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/incline-dumbbell-curl</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/tricep-pushdown</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/close-grip-bench</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/skull-crusher</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/plank</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/hanging-leg-raise</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/cable-crunch</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/barbell-incline-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/barbell-decline-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/dumbbell-chest-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/dumbbell-decline-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/dumbbell-chest-fly</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/pec-deck-fly</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/reverse-pec-deck-fly</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/dumbbell-shoulder-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/smith-machine-shoulder-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/machine-shoulder-press</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/overhead-tricep-extension</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/single-arm-rope-tricep-extension</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/leg-extension</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/dumbbell-curl</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/preacher-curl</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/shrugs</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gymthetic.vercel.app/exercises/wrist-curl</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/5-signs-you-need-a-deload-week</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/beginner-mistakes-that-kill-progress</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/how-much-protein-do-you-need</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/how-to-warm-up-before-lifting</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/progressive-overload-explained</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/free-weights-vs-machines</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/how-often-should-you-train-each-muscle-group</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/compound-vs-isolation-exercises</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/why-your-bench-press-isnt-going-up</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/best-rep-range-for-muscle-growth</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/how-to-fix-your-squat-depth</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/should-you-train-to-failure</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gymthetic.vercel.app/blog/does-creatine-actually-work</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>

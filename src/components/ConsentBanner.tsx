@@ -4,6 +4,10 @@ import { useConsent } from '../hooks/useConsent'
 export default function ConsentBanner() {
   const { consent, accept, decline } = useConsent()
 
+  // Consent is inherently client-only (localStorage); render nothing during SSR/prerendering
+  // rather than guessing, both to avoid a hydration mismatch and to keep this out of the
+  // crawler-facing prerendered HTML, which doesn't need it.
+  if (typeof window === 'undefined') return null
   if (consent !== null) return null
 
   return (
