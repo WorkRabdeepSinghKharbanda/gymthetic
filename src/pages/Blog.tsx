@@ -21,7 +21,12 @@ export default function Blog() {
       <div className="mt-8 divide-y divide-neutral-200 rounded-xl border border-neutral-200 bg-white dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-900">
         {posts.map((post) => (
           <Link key={post.slug} to={`/blog/${post.slug}`} className="block p-5 hover:bg-neutral-50 dark:hover:bg-neutral-800/60">
-            <p className="text-xs text-neutral-400">{new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            <div className="flex items-center gap-2 text-xs text-neutral-400">
+              <span>{new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <span className="rounded-full bg-neutral-100 px-2 py-0.5 font-semibold uppercase text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400">
+                {post.category}
+              </span>
+            </div>
             <h2 className="mt-1 font-semibold text-neutral-900 dark:text-white">{post.title}</h2>
             <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{post.description}</p>
           </Link>
