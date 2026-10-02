@@ -3,14 +3,20 @@ import { sortedBlogPosts } from '../data/blogPosts'
 
 const COUNT = 3
 
-/** Next N posts after the current one in the sorted list, wrapping around — deterministic, no tags needed. */
+/** Same-category posts first, then next posts in the sorted list (wrapping) to fill any remaining slots. */
 export default function RelatedPosts({ currentSlug }: { currentSlug: string }) {
   const posts = sortedBlogPosts()
+  const current = posts.find((p) => p.slug === currentSlug)
   const index = posts.findIndex((p) => p.slug === currentSlug)
-  const related =
+
+  const sameCategory = current ? posts.filter((p) => p.slug !== currentSlug && p.category === current.category) : []
+  const fallback =
     index === -1
       ? posts.slice(0, COUNT)
-      : Array.from({ length: Math.min(COUNT, posts.length - 1) }, (_, i) => posts[(index + i + 1) % posts.length])
+      : Array.from({ length: posts.length - 1 }, (_, i) => posts[(index + i + 1) % posts.length]).filter((p) => p.slug !== currentSlug)
+
+  const sameCategorySlugs = new Set(sameCategory.map((p) => p.slug))
+  const related = [...sameCategory, ...fallback.filter((p) => !sameCategorySlugs.has(p.slug))].slice(0, COUNT)
 
   if (related.length === 0) return null
 

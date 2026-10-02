@@ -1,5 +1,6 @@
 import { exercises } from './data/exercises'
 import { blogPosts } from './data/blogPosts'
+import { ALTERNATIVES } from './data/alternativesData'
 
 export interface SitemapEntry {
   path: string
@@ -40,10 +41,6 @@ const STATIC_PAGES: SitemapEntry[] = [
   { path: '/best-core-exercises', priority: 0.7, changefreq: 'monthly' },
   { path: '/best-forearm-exercises', priority: 0.7, changefreq: 'monthly' },
   { path: '/alternatives', priority: 0.7, changefreq: 'monthly' },
-  { path: '/alternatives/strong-app-alternative', priority: 0.7, changefreq: 'monthly' },
-  { path: '/alternatives/hevy-alternative', priority: 0.7, changefreq: 'monthly' },
-  { path: '/alternatives/stronglifts-alternative', priority: 0.7, changefreq: 'monthly' },
-  { path: '/alternatives/jefit-alternative', priority: 0.7, changefreq: 'monthly' },
   { path: '/privacy', priority: 0.3, changefreq: 'yearly' },
 ]
 
@@ -52,5 +49,6 @@ export function getSitemapEntries(): SitemapEntry[] {
     ...STATIC_PAGES,
     ...exercises.map((e): SitemapEntry => ({ path: `/exercises/${e.slug}`, priority: 0.6, changefreq: 'monthly' })),
     ...blogPosts.map((p): SitemapEntry => ({ path: `/blog/${p.slug}`, priority: 0.6, changefreq: 'yearly' })),
+    ...ALTERNATIVES.map((a): SitemapEntry => ({ path: `/alternatives/${a.slug}`, priority: 0.7, changefreq: 'monthly' })),
   ]
 }

@@ -4,7 +4,7 @@ import GuideLayout from '../../components/GuideLayout'
 
 export default function BeginnerWorkoutPlan() {
   useSeo({
-    title: 'Beginner Workout Plan: Your First 3 Months in the Gym',
+    title: 'Beginner Workout Plan: First 3 Months',
     description: 'A simple 3-day full-body or push/pull/legs plan for your first months of lifting, with what to actually focus on while everything is new.',
     path: '/beginner-workout-plan',
     jsonLd: {

@@ -26,14 +26,18 @@ export default function AlternativePage() {
               datePublished: '2026-10-01',
               dateModified: '2026-10-01',
             },
-            {
-              '@type': 'FAQPage',
-              mainEntity: entry.faqs.map((f) => ({
-                '@type': 'Question',
-                name: f.q,
-                acceptedAnswer: { '@type': 'Answer', text: f.a },
-              })),
-            },
+            ...(entry.faqs.length > 0
+              ? [
+                  {
+                    '@type': 'FAQPage',
+                    mainEntity: entry.faqs.map((f) => ({
+                      '@type': 'Question',
+                      name: f.q,
+                      acceptedAnswer: { '@type': 'Answer', text: f.a },
+                    })),
+                  },
+                ]
+              : []),
           ],
         }
       : undefined,

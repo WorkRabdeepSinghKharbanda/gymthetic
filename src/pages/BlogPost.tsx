@@ -29,14 +29,18 @@ export default function BlogPost() {
               author: { '@type': 'Organization', name: 'Gymthetic' },
               mainEntityOfPage: `https://gymthetic.vercel.app/blog/${post.slug}`,
             },
-            {
-              '@type': 'FAQPage',
-              mainEntity: post.faqs.map((f) => ({
-                '@type': 'Question',
-                name: f.q,
-                acceptedAnswer: { '@type': 'Answer', text: f.a },
-              })),
-            },
+            ...(post.faqs.length > 0
+              ? [
+                  {
+                    '@type': 'FAQPage',
+                    mainEntity: post.faqs.map((f) => ({
+                      '@type': 'Question',
+                      name: f.q,
+                      acceptedAnswer: { '@type': 'Answer', text: f.a },
+                    })),
+                  },
+                ]
+              : []),
           ],
         }
       : undefined,
